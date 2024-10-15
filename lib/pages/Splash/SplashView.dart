@@ -10,9 +10,9 @@ class SplashView extends GetView<SplashViewController> {
   @override
   Widget build(BuildContext context) {
     Get.put(SplashViewController());
-    queryMima({
-      "ss_sz": 1,
-    });
+    // queryMima({
+    //   "ss_sz": 1,
+    // });
     return Scaffold(
       appBar: AppBar(
         title: const Text('SplashView'),
