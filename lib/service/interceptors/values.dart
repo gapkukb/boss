@@ -1,41 +1,6 @@
 import 'package:dio/dio.dart';
 
-class BizException extends DioException {
-  final int code;
-
-  BizException({
-    int? code,
-    required RequestOptions requestOptions,
-    required Response response,
-    required String? message,
-  })  : this.code = code ?? -1,
-        super(
-          requestOptions: requestOptions,
-          response: response,
-          message: message,
-          stackTrace: StackTrace.current,
-        );
-}
-
-class ThrowableException {
-  final int code;
-  final String? message;
-
-  const ThrowableException(
-    this.code,
-    this.message,
-  );
-
-  String get debugMessage {
-    return "Exception: code:$code message: $message,stack:${StackTrace.current}";
-  }
-
-  String toString() {
-    return "$message - ($code)";
-  }
-}
-
-final HttpMessage = Map<int, String>.from({
+final _httpMessage = Map<int, String>.from({
   400: '客户端请求错误',
   401: '请先登录',
   403: '用户未授权',
@@ -69,10 +34,27 @@ final HttpMessage = Map<int, String>.from({
   505: '服务器不支持请求的HTTP协议的版本',
 });
 
-final BizMessage = Map<int, String>.from({
+final _bizMessage = Map<int, String>.from({
   1000: '余额不足',
   1001: '用户名密码错误',
 });
+
+class BizException extends DioException {
+  final int code;
+
+  BizException({
+    int? code,
+    required RequestOptions requestOptions,
+    required Response response,
+    required String? message,
+  })  : this.code = code ?? -1,
+        super(
+          requestOptions: requestOptions,
+          response: response,
+          message: message,
+          stackTrace: StackTrace.current,
+        );
+}
 
 extension _toChinese on DioExceptionType {
   String get chineseMessage {
@@ -89,26 +71,35 @@ extension _toChinese on DioExceptionType {
   }
 }
 
-ThrowableException format(DioException ex) {
+class _ThrowableException {
+  final int code;
+  final String? message;
+
+  const _ThrowableException(
+    this.code,
+    this.message,
+  );
+
+  String get debugMessage {
+    return "Exception: code:$code message: $message,stack:${StackTrace.current}";
+  }
+
+  String toString() {
+    return "$message - ($code)";
+  }
+}
+
+_ThrowableException exceptionToThrowable(DioException ex) {
   if (ex is BizException) {
-    return ThrowableException(ex.code, BizMessage[ex.code] ?? ex.message);
+    return _ThrowableException(ex.code, _bizMessage[ex.code] ?? ex.message);
   }
 
   switch (ex.type) {
-    case DioExceptionType.cancel:
-    case DioExceptionType.connectionTimeout:
-    case DioExceptionType.sendTimeout:
-    case DioExceptionType.receiveTimeout:
-    case DioExceptionType.badCertificate:
-    case DioExceptionType.connectionError:
-    case DioExceptionType.unknown:
-      return ThrowableException(-1, ex.type.chineseMessage);
-
     case DioExceptionType.badResponse:
       final code = ex.response!.statusCode!;
-      return ThrowableException(code, HttpMessage[code]);
+      return _ThrowableException(code, _httpMessage[code]);
 
     default:
-      return ThrowableException(-1, ex.message);
+      return _ThrowableException(-1, ex.type.chineseMessage);
   }
 }

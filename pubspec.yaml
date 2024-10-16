@@ -45,6 +45,7 @@ dependencies:
   #sentry日志上报
   sentry_flutter: ^8.9.0
   shared_preferences: ^2.3.2
+  device_info: ^2.0.3
 
 
 
