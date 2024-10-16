@@ -26,7 +26,7 @@ void main() async {
 
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: Routes.INITIAL,
+    initialRoute: AppPages.initalRoute,
     theme: appTheme,
     translationsKeys: AppLocales.translations,
     defaultTransition: Transition.rightToLeftWithFade,

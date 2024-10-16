@@ -1,11 +1,12 @@
 import 'package:boss/pages/Home/HomeView.dart';
 import 'package:boss/pages/Splash/SplashView.dart';
-import 'package:boss/pages/account/login.dart';
+import 'package:boss/pages/login/index.dart';
 import 'package:get/get.dart';
 
 part './routes.dart';
 
 abstract class AppPages {
+  static const initalRoute = Routes.LOGIN;
   static final pages = [
     GetPage(
       name: Routes.INITIAL,
@@ -17,7 +18,8 @@ abstract class AppPages {
     ),
     GetPage(
       name: Routes.LOGIN,
-      page: () => LoginView(),
+      binding: LoginBinding(),
+      page: () => LoginPage(),
     )
   ];
 }

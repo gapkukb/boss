@@ -1,11 +1,11 @@
-part of 'global.dart';
+// part of 'global.dart';
 
-class LocalStorage {
-  LocalStorage._();
+// class LocalStorage {
+//   LocalStorage._();
 
-  static late final SharedPreferences prefs;
+//   static late final SharedPreferences prefs;
 
-  static init() async {
-    prefs = await SharedPreferences.getInstance();
-  }
-}
+//   static init() async {
+//     prefs = await SharedPreferences.getInstance();
+//   }
+// }

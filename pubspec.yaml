@@ -44,8 +44,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   #sentry日志上报
   sentry_flutter: ^8.9.0
-  shared_preferences: ^2.3.2
-  device_info: ^2.0.3
+  # shared_preferences: ^2.3.2
+  device_info_plus: ^11.0.0
 
 
 
@@ -76,6 +76,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
       - assets/ca/
+      - assets/images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
