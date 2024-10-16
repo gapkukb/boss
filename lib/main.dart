@@ -6,12 +6,23 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+import 'global/global.dart';
 import 'setup/index.dart';
 
 void main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
+  setupSystem();
+  setupEasyLoading();
 
-  await setup();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Future.wait([
+    setupHttpCertificate(),
+    setupSentry(),
+    Global.setup(),
+  ]);
+
+  SentryFlutter.setAppStartEnd(DateTime.now());
 
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,

@@ -1,25 +1,23 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'response_resolver.dart';
+import 'values.dart';
 
+/** 改拦截器会修改返回值，应置于最后设置 */
 class ErrorsHandler extends InterceptorsWrapper {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     super.onError(err, handler);
-    String? message;
-
     if (err is BizException) {
-      if (!err.message!.isEmpty) {
-        message = err.message!;
-      }
-    } else {
-      message = err.response!.statusCode == 401
-          ? 'Unauthorized'
-          : 'Something went wrong';
+      EasyLoading.showToast(err.message!);
+      return;
+    }
+    final error = format(err);
+
+    if (error.message != null) {
+      EasyLoading.showToast(err.toString());
     }
 
-    if (message != null) {
-      EasyLoading.showToast(err.message!);
-    }
+    // TODO: 错误上报
+    print(error.debugMessage);
   }
 }

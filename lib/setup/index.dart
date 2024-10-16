@@ -1,11 +1,7 @@
 library setup;
 
-import './easy_loading.dart';
-import './http_certificate.dart';
-import './load_env.dart';
-
-Future<void> setup() async {
-  setupEasyLoading();
-  await setupHttpSecurity();
-  await loadENV();
-}
+export 'setup_easy_loading.dart';
+export 'setup_http_certificate.dart';
+export 'setup_sentry.dart';
+export 'setup_system.dart';
+export 'setup_shared_preferences.dart';

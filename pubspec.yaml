@@ -42,6 +42,12 @@ dependencies:
   carousel_slider: ^5.0.0
   flutter_native_splash: ^2.4.1
   flutter_dotenv: ^5.2.1
+  #sentry日志上报
+  sentry_flutter: ^8.9.0
+  shared_preferences: ^2.3.2
+
+
+
 
 dev_dependencies:
   flutter_test:
