@@ -51,6 +51,7 @@ dependencies:
   pinput: ^5.0.0
   slide_countdown: ^2.0.0
   nil: ^1.1.1
+  getwidget: ^4.0.0
 
 
 

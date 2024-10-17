@@ -8,6 +8,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'global/global.dart';
+import 'pages/user/drawer/index.dart';
 import 'setup/index.dart';
 
 void main() async {
@@ -24,16 +25,32 @@ void main() async {
 
   SentryFlutter.setAppStartEnd(DateTime.now());
 
-  runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    initialRoute: AppPages.initalRoute,
-    theme: appTheme,
-    translationsKeys: AppLocales.translations,
-    defaultTransition: Transition.rightToLeftWithFade,
-    locale: Locale('en', 'US'),
-    fallbackLocale: Locale('en', 'US'),
-    getPages: AppPages.pages,
-    home: SplashView(),
-    builder: EasyLoading.init(),
-  ));
+  runApp(
+    GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppPages.initalRoute,
+      theme: appTheme,
+      translationsKeys: AppLocales.translations,
+      defaultTransition: Transition.rightToLeftWithFade,
+      locale: Locale('en', 'US'),
+      fallbackLocale: Locale('en', 'US'),
+      getPages: AppPages.pages,
+      home: SplashView(),
+      // builder: (context, child) {
+      //   child = EasyLoading.init()(context, child);
+      //   return Scaffold(
+      //     drawer: UserDrawerPage(),
+      //     body: child,
+      //   );
+      // },
+      builder: EasyLoading.init(
+        builder: (context, child) {
+          return Scaffold(
+            drawer: UserDrawerPage(),
+            body: child,
+          );
+        },
+      ),
+    ),
+  );
 }

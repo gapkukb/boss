@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/components/button/gf_button.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import '../../../build_gen/assets.gen.dart';
 import '../../../widgets/scroll_column_expandable.dart';
+import '../drawer/index.dart';
 import 'data.dart';
 import 'index.dart';
 import 'widgets/clipper.dart';
@@ -27,7 +30,17 @@ class UserProfilePage extends GetView<UserProfileController> {
       builder: (_) {
         return Scaffold(
           // backgroundColor: Colors.grey,
-          // appBar: AppBar(title: const Text("user_profile")),
+          appBar: AppBar(
+            title: const Text("user_profile"),
+            leading: GFIconButton(
+              size: GFSize.SMALL,
+              color: Colors.transparent,
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            ),
+          ),
           body: CustomScrollView(
             slivers: [
               SliverPersistentHeader(
