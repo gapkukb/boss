@@ -25,8 +25,11 @@ class $AssetsImagesGen {
   /// File path: assets/images/login_mood_board.png
   AssetGenImage get loginMoodBoard => const AssetGenImage('assets/images/login_mood_board.png');
 
+  /// File path: assets/images/user_profile_backgroundimage.jpg
+  AssetGenImage get userProfileBackgroundimage => const AssetGenImage('assets/images/user_profile_backgroundimage.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [loginMoodBoard];
+  List<AssetGenImage> get values => [loginMoodBoard, userProfileBackgroundimage];
 }
 
 class Assets {
