@@ -1,23 +1,24 @@
-import 'package:boss/pages/Home/HomeView.dart';
-import 'package:boss/pages/Splash/SplashView.dart';
-import 'package:boss/pages/login/index.dart';
-import 'package:boss/pages/pin/pin.dart';
-import 'package:boss/pages/user/profile/index.dart';
 import 'package:get/get.dart';
+import '../pages/login/index.dart';
+import '../pages/pin/pin.dart';
+import '../pages/user/profile/index.dart';
+import '../pages/home/index.dart';
+import '../pages/splash/index.dart';
+import '../pages/recommendation/index.dart';
 
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.PROFILE;
+  static const initalRoute = Routes.HOME;
 
   static final pages = [
     GetPage(
       name: Routes.INITIAL,
-      page: () => SplashView(),
+      page: () => SplashPage(),
     ),
     GetPage(
       name: Routes.HOME,
-      page: () => HomeView(),
+      page: () => HomePage(),
     ),
     GetPage(
       name: Routes.LOGIN,
@@ -31,6 +32,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.PROFILE,
       page: () => UserProfilePage(),
+    ),
+    GetPage(
+      name: Routes.RECOMMENDATION,
+      page: () => RecommendationPage(),
     ),
   ];
 }

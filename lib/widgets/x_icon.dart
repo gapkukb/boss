@@ -10,6 +10,7 @@ class XIcon extends StatelessWidget {
   final Color? fgcolor;
   final BoxShape shape;
   final BorderRadius? borderRadius;
+  final VoidCallback? onTap;
 
   const XIcon({
     Key? key,
@@ -19,6 +20,7 @@ class XIcon extends StatelessWidget {
     this.fgcolor,
     this.padding,
     this.borderRadius,
+    this.onTap,
     this.shape = BoxShape.circle,
   }) : super(key: key);
 
@@ -47,7 +49,7 @@ class XIcon extends StatelessWidget {
       throw "icon must a iconData or String or Widget";
     }
 
-    return DecoratedBox(
+    final view = DecoratedBox(
       decoration: BoxDecoration(
         color: color,
         shape: shape,
@@ -62,5 +64,12 @@ class XIcon extends StatelessWidget {
         ),
       ),
     );
+
+    return onTap == null
+        ? view
+        : InkWell(
+            onTap: onTap,
+            child: view,
+          );
   }
 }

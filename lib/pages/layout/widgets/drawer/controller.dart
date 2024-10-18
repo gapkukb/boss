@@ -1,7 +1,11 @@
+import 'dart:math';
+
 import 'package:get/get.dart';
 
 class LayoutDrawerController extends GetxController {
   LayoutDrawerController();
+
+  final width = 0.0.obs;
 
   _initData() {
     update(["user_drawer"]);
@@ -9,15 +13,15 @@ class LayoutDrawerController extends GetxController {
 
   void onTap() {}
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
+  @override
+  void onInit() {
+    // width = min(Get.width * 0.8, 300);
+  }
 
   @override
   void onReady() {
     super.onReady();
-    _initData();
+    width.value = min(Get.width * 0.8, 300);
   }
 
   // @override
