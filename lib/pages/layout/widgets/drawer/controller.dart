@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class UserDrawerController extends GetxController {
-  UserDrawerController();
+class LayoutDrawerController extends GetxController {
+  LayoutDrawerController();
 
   _initData() {
     update(["user_drawer"]);

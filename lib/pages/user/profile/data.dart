@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../widgets/x_icon.dart';
 
 class Option extends StatelessWidget {
@@ -19,7 +19,12 @@ class Option extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.only(left: 16, right: 8),
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: 14.sp,
+        ),
+      ),
       leading: XIcon(
         icon: icon,
         color: iconColor,

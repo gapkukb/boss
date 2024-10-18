@@ -5,7 +5,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import '../../../build_gen/assets.gen.dart';
 import '../../../widgets/scroll_column_expandable.dart';
-import '../drawer/index.dart';
+import '../../layout/widgets/drawer/index.dart';
 import 'data.dart';
 import 'index.dart';
 import 'widgets/clipper.dart';
@@ -41,6 +41,7 @@ class UserProfilePage extends GetView<UserProfileController> {
               },
             ),
           ),
+
           body: CustomScrollView(
             slivers: [
               SliverPersistentHeader(

@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/getwidget.dart';
-import '../../../build_gen/assets.gen.dart';
+import '../../../../build_gen/assets.gen.dart';
 import 'index.dart';
 
-class UserDrawerPage extends GetView<UserDrawerController> {
-  const UserDrawerPage({super.key});
+class LayoutDrawer extends GetView<LayoutDrawerController> {
+  const LayoutDrawer({super.key});
 
   // 主视图
   Widget _buildView() {
@@ -19,8 +19,8 @@ class UserDrawerPage extends GetView<UserDrawerController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<UserDrawerController>(
-      init: UserDrawerController(),
+    return GetBuilder<LayoutDrawerController>(
+      init: LayoutDrawerController(),
       id: "user_drawer",
       builder: (_) {
         return Drawer(
