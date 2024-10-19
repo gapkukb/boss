@@ -29,6 +29,11 @@ class LayoutBottomNavigatorController extends GetxController {
     ),
     Item(
       icon: XIcon(icon: Icons.home),
+      label: "论坛",
+      name: Routes.LOGIN,
+    ),
+    Item(
+      icon: XIcon(icon: Icons.home),
       label: "PIN",
       name: Routes.PIN,
     ),

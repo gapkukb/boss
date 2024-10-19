@@ -32,12 +32,19 @@ class RecommendationPage extends GetView<RecommendationController> {
               options: CarouselOptions(
                 autoPlay: true,
                 height: 200.r,
+                enlargeCenterPage: true,
                 onPageChanged: (index, reason) {
                   controller.current.value = index;
                 },
               ),
-              // items: controller.slides.map((slide) => Image.network('https://picsum.photos/200/300?random=$slide', fit: BoxFit.cover)).toList()),
-              items: controller.slides.map((slide) => FlutterLogo()).toList()),
+              items: controller.slides
+                  .map((slide) => Image.network(
+                        'https://picsum.photos/200/300?random=$slide',
+                        fit: BoxFit.fill,
+                        width: double.infinity,
+                      ))
+                  .toList()),
+          // items: controller.slides.map((slide) => FlutterLogo()).toList()),
         ),
         Positioned(
           child: Obx(
@@ -138,7 +145,7 @@ class RecommendationPage extends GetView<RecommendationController> {
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.06,
+                    childAspectRatio: 0.99,
                     crossAxisCount: 2,
                     crossAxisSpacing: 8.r,
                     mainAxisSpacing: 8.r,

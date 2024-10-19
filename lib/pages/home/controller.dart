@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../live_stream/index.dart';
 import '../recommendation/index.dart';
 
 class HomeTab {
@@ -13,10 +14,10 @@ class HomeTab {
 class HomeController extends GetxController {
   HomeController();
 
-  final initialIndex = 1.obs;
+  final initialIndex = 0.obs;
 
   final List<HomeTab> tabs = [
-    HomeTab(title: "直播", view: FlutterLogo()),
+    HomeTab(title: "直播", view: LiveStreamPage()),
     HomeTab(title: "推荐", view: RecommendationPage()),
     HomeTab(title: "追番", view: FlutterLogo()),
     HomeTab(title: "国创", view: FlutterLogo()),

@@ -70,6 +70,7 @@ class XIcon extends StatelessWidget {
         : InkWell(
             onTap: onTap,
             child: view,
+            borderRadius: BorderRadius.circular(100),
           );
   }
 }

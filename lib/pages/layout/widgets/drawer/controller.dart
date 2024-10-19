@@ -1,11 +1,11 @@
 import 'dart:math';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class LayoutDrawerController extends GetxController {
   LayoutDrawerController();
 
-  final width = 0.0.obs;
+  final width = min(640.w, 320.0).obs;
 
   _initData() {
     update(["user_drawer"]);
