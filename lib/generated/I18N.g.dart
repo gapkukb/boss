@@ -3,7 +3,7 @@
 import 'package:get/get.dart';
 
 class _Home {
-	final title = 'Home'.tr;
+	final title = 'Home111'.tr;
 }
 
 abstract class I18N {

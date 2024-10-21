@@ -1,13 +1,24 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+
+import '../../routes/pages.dart';
 
 class SplashController extends GetxController {
   SplashController();
+  final current = 0.obs;
+  late final pageController = PageController();
 
-  _initData() {
-    update(["splash"]);
+  void onPrevious() {
+    pageController.previousPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
   }
 
-  void onTap() {}
+  void onNext() {
+    pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
+  }
+
+  void onSkip() {
+    Get.toNamed(Routes.HOME);
+  }
 
   // @override
   // void onInit() {
@@ -17,11 +28,10 @@ class SplashController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    _initData();
   }
 
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }

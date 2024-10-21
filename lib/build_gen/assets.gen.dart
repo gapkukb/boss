@@ -25,11 +25,30 @@ class $AssetsImagesGen {
   /// File path: assets/images/login_mood_board.png
   AssetGenImage get loginMoodBoard => const AssetGenImage('assets/images/login_mood_board.png');
 
+  /// Directory path: assets/images/splash
+  $AssetsImagesSplashGen get splash => const $AssetsImagesSplashGen();
+
   /// File path: assets/images/user_profile_backgroundimage.jpg
   AssetGenImage get userProfileBackgroundimage => const AssetGenImage('assets/images/user_profile_backgroundimage.jpg');
 
   /// List of all assets
   List<AssetGenImage> get values => [loginMoodBoard, userProfileBackgroundimage];
+}
+
+class $AssetsImagesSplashGen {
+  const $AssetsImagesSplashGen();
+
+  /// File path: assets/images/splash/1.png
+  AssetGenImage get a1 => const AssetGenImage('assets/images/splash/1.png');
+
+  /// File path: assets/images/splash/2.png
+  AssetGenImage get a2 => const AssetGenImage('assets/images/splash/2.png');
+
+  /// File path: assets/images/splash/3.png
+  AssetGenImage get a3 => const AssetGenImage('assets/images/splash/3.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [a1, a2, a3];
 }
 
 class Assets {

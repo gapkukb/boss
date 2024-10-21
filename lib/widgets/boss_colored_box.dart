@@ -30,7 +30,7 @@ class BossColoredBox extends StatelessWidget {
     this.surfaceTintColor,
     this.textStyle,
     this.borderRadius,
-    this.shape = const CircleBorder(),
+    this.shape = const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(100))),
     this.borderOnForeground = true,
     this.clipBehavior = Clip.none,
     this.animationDuration = kThemeChangeDuration,

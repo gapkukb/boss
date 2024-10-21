@@ -13,11 +13,11 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.SETTINGS;
+  static const initalRoute = Routes.SPLASH;
 
   static final pages = [
     GetPage(
-      name: Routes.INITIAL,
+      name: Routes.SPLASH,
       page: () => SplashPage(),
     ),
     GetPage(
