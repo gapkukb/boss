@@ -3,7 +3,6 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'global/global.dart';
 import 'setup/index.dart';
 import 'app.dart';
-import 'app2.dart';
 
 void main() async {
   setupSystem();

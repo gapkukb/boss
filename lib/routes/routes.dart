@@ -9,5 +9,6 @@ abstract class Routes {
   static const LOGIN = '/login';
   static const PIN = '/pin';
   static const PROFILE = '/user/profile';
+  static const SETTINGS = '/settings';
   static const MOMENTS = '/moments';
 }
