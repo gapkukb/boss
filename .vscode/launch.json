@@ -3,12 +3,26 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
+  "tasks": [
+    {
+      "label": "echotest",
+      "command": "echo", // Could be any other shell command
+      "args": ["test"],
+      "type": "shell"
+    }
+  ],
   "configurations": [
     {
       "name": "boss dev",
       "request": "launch",
       "type": "dart",
-      "args": ["--dart-define-from-file", "env/.env","--dart-define-from-file","env/uat.env"]
+      "args": [
+        "--dart-define-from-file",
+        "env/.env",
+        "--dart-define-from-file",
+        "env/uat.env"
+      ],
+      "preLaunchTask": "echotest"
     },
     {
       "name": "boss (profile mode)",
@@ -25,11 +39,17 @@
       "args": ["--dart-define", "env=uat"]
     },
     {
-        "name": "boss (release mode)",
-        "request": "launch",
-        "type": "dart",
-        "flutterMode": "release",
-        "args": ["--dart-define", "env=prod"]
-      }
+      "name": "boss (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "args": ["--dart-define", "env=prod"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "flutter dev",
+      "configurations": []
+    }
   ]
 }

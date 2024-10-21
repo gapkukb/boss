@@ -28,10 +28,13 @@ String generatePropertis(Map value, Struct struct, String prefix) {
 generateClass(String filePath) {
   final struct = Struct();
   final String fileName = path.basenameWithoutExtension(filePath);
+  final file = File(filePath);
+  final content = file.readAsStringSync();
 
-  File file = File(filePath);
+  if (content.isEmpty) return;
+
   Map decoded = yaml.loadYaml(
-    file.readAsStringSync(),
+    file.readAsStringSync() ?? '',
   );
 
   final className = capitalize(fileName);
@@ -61,14 +64,17 @@ generate() {
 
   output += '}\n\n';
 
-  File('lib/generated/I18N.g.dart').writeAsStringSync(
+  final file = File('lib/generated/I18N.g.dart');
+  file.createSync(recursive: true);
+  file.writeAsStringSync(
     output,
     mode: FileMode.writeOnly,
   );
 }
 
 void main() async {
-  var dir = Directory('assets/locales/en');
+  print(Directory.current);
+  var dir = Directory(Directory.current.path + '/assets/locales/en');
 
   dir.listSync().forEach((file) {
     print("${file.path} auto generated;");

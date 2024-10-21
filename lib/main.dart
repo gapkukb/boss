@@ -13,7 +13,6 @@ void main() async {
   await Future.wait([
     setupHttpCertificate(),
     setupSentry(),
-    setupI18N(),
     Global.setup(),
   ]);
 
