@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../global/global.dart';
 import '../../routes/pages.dart';
 
 class SplashController extends GetxController {
@@ -20,10 +21,17 @@ class SplashController extends GetxController {
     Get.toNamed(Routes.HOME);
   }
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
+  void start() {
+    //TODO:持久化；
+    // Global.
+    onSkip();
+  }
+
+  @override
+  void onInit() {
+    //TODO: 检查是否已经展示过，是则回到首页；
+    super.onInit();
+  }
 
   @override
   void onReady() {

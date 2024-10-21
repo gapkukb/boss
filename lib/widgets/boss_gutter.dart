@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BossGutter extends StatelessWidget {
   /** 4 */
-  static const double MINI = 4;
+  static final double MINI = 8.r;
   /** 8 */
-  static const double SMALL = 8;
+  static final double SMALL = 16.r;
   /** 16 */
-  static const double MEDIUM = 16;
+  static final double MEDIUM = 32.r;
   /** 24 */
-  static const double LARGE = 24;
+  static final double LARGE = 48.r;
   /** 32 */
-  static const double XLARGE = 32;
+  static final double XLARGE = 64.r;
   /** 40 */
-  static const double XXLARGE = 40;
+  static final double XXLARGE = 80.r;
   /** 48 */
-  static const double XXXLARGE = 48;
+  static final double XXXLARGE = 96.r;
 
   final double size;
 
@@ -29,17 +30,17 @@ class BossGutter extends StatelessWidget {
   }
 
   /** 4 */
-  const BossGutter.mini({super.key}) : size = MINI;
+  BossGutter.mini({super.key}) : size = MINI;
   /** 8 */
-  const BossGutter.small({super.key}) : size = SMALL;
+  BossGutter.small({super.key}) : size = SMALL;
   /** 16 */
-  const BossGutter.medium({super.key}) : size = MEDIUM;
+  BossGutter.medium({super.key}) : size = MEDIUM;
   /** 24 */
-  const BossGutter.large({super.key}) : size = LARGE;
+  BossGutter.large({super.key}) : size = LARGE;
   /** 32 */
-  const BossGutter.xlarge({super.key}) : size = XLARGE;
+  BossGutter.xlarge({super.key}) : size = XLARGE;
   /** 40 */
-  const BossGutter.xxlarge({super.key}) : size = XXLARGE;
+  BossGutter.xxlarge({super.key}) : size = XXLARGE;
   /** 48 */
-  const BossGutter.xxxlarge({super.key}) : size = XXXLARGE;
+  BossGutter.xxxlarge({super.key}) : size = XXXLARGE;
 }

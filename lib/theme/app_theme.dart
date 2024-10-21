@@ -16,17 +16,4 @@ final appTheme = ThemeData(
     ),
     minTileHeight: 56.r,
   ),
-
-  appBarTheme: AppBarTheme(
-    backgroundColor: spotlightColor,
-    elevation: 0,
-    titleTextStyle: TextStyle(
-      color: Colors.red,
-      // fontSize: 64.sp,
-    ),
-    // iconTheme: IconThemeData(
-    //   // color: Colors.white,
-    //   size: 48.w,
-    // ),
-  ),
 );

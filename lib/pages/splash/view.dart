@@ -25,10 +25,12 @@ class _Indicator extends AnimatedContainer {
 class _Button extends StatelessWidget {
   final bool hidden;
   final String text;
+  final Color color;
   final void Function()? onPressed;
   const _Button({
     Key? key,
     required this.text,
+    required this.color,
     this.hidden = false,
     this.onPressed,
   }) : super(key: key);
@@ -39,7 +41,7 @@ class _Button extends StatelessWidget {
       opacity: hidden ? 0 : 1,
       child: GFButton(
         type: GFButtonType.transparent,
-        color: Color(0xffF83758),
+        color: color,
         text: text,
         onPressed: onPressed,
       ),
@@ -116,14 +118,15 @@ class SplashPage extends GetView<SplashController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       _Button(
-                        text: "Previous",
+                        text: "Prev",
+                        color: Color(0xffa8a8a8),
                         hidden: controller.current.value == 0,
                         onPressed: controller.onPrevious,
                       ),
                       _Button(
-                        text: "Next",
-                        hidden: controller.current.value == 2,
-                        onPressed: controller.onNext,
+                        color: Color(0xffF83758),
+                        text: controller.current.value == 2 ? "Get Started" : "Next",
+                        onPressed: controller.current.value == 2 ? controller.start : controller.onNext,
                       ),
                     ],
                   ),

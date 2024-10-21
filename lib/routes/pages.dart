@@ -13,7 +13,7 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.SPLASH;
+  static const initalRoute = Routes.LOGIN;
 
   static final pages = [
     GetPage(

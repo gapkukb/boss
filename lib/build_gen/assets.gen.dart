@@ -25,6 +25,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/login_mood_board.png
   AssetGenImage get loginMoodBoard => const AssetGenImage('assets/images/login_mood_board.png');
 
+  /// File path: assets/images/sign_in_icon.png
+  AssetGenImage get signInIcon => const AssetGenImage('assets/images/sign_in_icon.png');
+
+  /// File path: assets/images/sign_up_icon.png
+  AssetGenImage get signUpIcon => const AssetGenImage('assets/images/sign_up_icon.png');
+
   /// Directory path: assets/images/splash
   $AssetsImagesSplashGen get splash => const $AssetsImagesSplashGen();
 
@@ -32,7 +38,7 @@ class $AssetsImagesGen {
   AssetGenImage get userProfileBackgroundimage => const AssetGenImage('assets/images/user_profile_backgroundimage.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [loginMoodBoard, userProfileBackgroundimage];
+  List<AssetGenImage> get values => [loginMoodBoard, signInIcon, signUpIcon, userProfileBackgroundimage];
 }
 
 class $AssetsImagesSplashGen {
