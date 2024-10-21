@@ -4,6 +4,7 @@ import '../pages/login/index.dart';
 import '../pages/moments/index.dart';
 import '../pages/pin/pin.dart';
 import '../pages/searching/index.dart';
+import '../pages/settings/index.dart';
 import '../pages/user/profile/index.dart';
 import '../pages/home/index.dart';
 import '../pages/splash/index.dart';
@@ -12,7 +13,7 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.SEARCHING;
+  static const initalRoute = Routes.SETTINGS;
 
   static final pages = [
     GetPage(
@@ -33,8 +34,8 @@ abstract class AppPages {
       page: () => PinPut(),
     ),
     GetPage(
-      name: Routes.PROFILE,
-      page: () => UserProfilePage(),
+      name: Routes.SETTINGS,
+      page: () => SettingsPage(),
     ),
     GetPage(
       name: Routes.RECOMMENDATION,
