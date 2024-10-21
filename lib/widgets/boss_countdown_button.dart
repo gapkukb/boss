@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
-class XCountdownButton extends StatefulWidget {
+class BossCountdownButton extends StatefulWidget {
   final Duration duration;
   final Decoration? decoration;
   final Decoration? disabledDecoration;
@@ -16,7 +16,7 @@ class XCountdownButton extends StatefulWidget {
   final double? width;
   final double? height;
 
-  const XCountdownButton({
+  const BossCountdownButton({
     super.key,
     this.textStyle,
     this.decoration,
@@ -34,10 +34,10 @@ class XCountdownButton extends StatefulWidget {
   });
 
   @override
-  State<XCountdownButton> createState() => _XCountdownButtonState();
+  State<BossCountdownButton> createState() => _BossCountdownButtonState();
 }
 
-class _XCountdownButtonState extends State<XCountdownButton> {
+class _BossCountdownButtonState extends State<BossCountdownButton> {
   bool counting = false;
   bool retried = false;
   late String text = widget.idleText;

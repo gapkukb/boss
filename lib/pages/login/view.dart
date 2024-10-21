@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
-import '../../widgets/scroll_column_expandable.dart';
-import '../../widgets/x_divider.dart';
-import '../../widgets/x_phone_textfield.dart';
+import '../../widgets/boss_scroll_column_expandable.dart';
+import '../../widgets/boss_divider.dart';
+import '../../widgets/boss_phone_textfield.dart';
 import 'index.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
 import '../../build_gen/assets.gen.dart';
@@ -61,7 +61,7 @@ class LoginPage extends GetView<LoginController> {
         ),
       ),
       Spacer(),
-      XDivider(
+      BossDivider(
         text: 'OR',
         textColor: Colors.black,
       ),
@@ -92,7 +92,7 @@ class LoginPage extends GetView<LoginController> {
     return GetBuilder<LoginController>(
       builder: (_) {
         return Scaffold(
-          body: ScrollColumnExpandable(
+          body: BossScrollColumnExpandable(
             padding: EdgeInsets.only(
               top: 250.0,
               left: 16.0,

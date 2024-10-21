@@ -12,7 +12,7 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.SEARCHING;
+  static const initalRoute = Routes.PROFILE;
 
   static final pages = [
     GetPage(

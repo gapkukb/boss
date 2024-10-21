@@ -4,11 +4,11 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:getwidget/getwidget.dart';
 import '../../build_gen/assets.gen.dart';
-import '../../widgets/X_colored_box.dart';
-import '../../widgets/x_icon.dart';
+import '../../widgets/boss_colored_box.dart';
+import '../../widgets/boss_icon.dart';
 import 'index.dart';
 
-class _Dot extends XColoredBox {
+class _Dot extends BossColoredBox {
   final bool active;
 
   _Dot({
@@ -98,7 +98,7 @@ class RecommendationPage extends GetView<RecommendationController> {
       content: ListTile(
         contentPadding: EdgeInsets.zero,
         minVerticalPadding: 0,
-        leading: XIcon(
+        leading: BossIcon(
           icon: Icons.live_tv,
         ),
         horizontalTitleGap: 0,
@@ -109,7 +109,7 @@ class RecommendationPage extends GetView<RecommendationController> {
             height: 3,
           ),
         ),
-        trailing: XIcon(
+        trailing: BossIcon(
           icon: Icons.more_vert,
           onTap: () {},
         ),

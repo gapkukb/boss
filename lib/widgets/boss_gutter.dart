@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Gutter extends StatelessWidget {
+class BossGutter extends StatelessWidget {
   /** 4 */
   static const double MINI = 4;
   /** 8 */
@@ -18,7 +18,7 @@ class Gutter extends StatelessWidget {
 
   final double size;
 
-  const Gutter({
+  const BossGutter({
     super.key,
     required this.size,
   });
@@ -29,17 +29,17 @@ class Gutter extends StatelessWidget {
   }
 
   /** 4 */
-  const Gutter.mini({super.key}) : size = MINI;
+  const BossGutter.mini({super.key}) : size = MINI;
   /** 8 */
-  const Gutter.small({super.key}) : size = SMALL;
+  const BossGutter.small({super.key}) : size = SMALL;
   /** 16 */
-  const Gutter.medium({super.key}) : size = MEDIUM;
+  const BossGutter.medium({super.key}) : size = MEDIUM;
   /** 24 */
-  const Gutter.large({super.key}) : size = LARGE;
+  const BossGutter.large({super.key}) : size = LARGE;
   /** 32 */
-  const Gutter.xlarge({super.key}) : size = XLARGE;
+  const BossGutter.xlarge({super.key}) : size = XLARGE;
   /** 40 */
-  const Gutter.xxlarge({super.key}) : size = XXLARGE;
+  const BossGutter.xxlarge({super.key}) : size = XXLARGE;
   /** 48 */
-  const Gutter.xxxlarge({super.key}) : size = XXXLARGE;
+  const BossGutter.xxxlarge({super.key}) : size = XXXLARGE;
 }

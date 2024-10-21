@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class XDivider extends StatelessWidget {
+class BossDivider extends StatelessWidget {
   final double? thickness;
   final double? gap;
   final String? text;
   final Color? textColor;
   final Widget? textWiget;
 
-  const XDivider({
+  const BossDivider({
     Key? key,
     this.thickness,
     this.gap,

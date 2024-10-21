@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../widgets/x_icon.dart';
+import '../../widgets/boss_icon.dart';
 import 'index.dart';
 
 import 'package:getwidget/getwidget.dart';
@@ -65,7 +65,7 @@ class LiveStreamPage extends GetView<LiveStreamController> {
           backgroundImage: NetworkImage('https://picsum.photos/64/64'),
           size: GFSize.SMALL,
         ),
-        trailing: XIcon(
+        trailing: BossIcon(
           icon: Icons.more_vert,
           onTap: () {},
         ),

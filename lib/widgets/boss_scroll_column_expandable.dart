@@ -9,7 +9,7 @@ class name extends StatelessWidget {
   }
 }
 
-class ScrollColumnExpandable extends StatelessWidget {
+class BossScrollColumnExpandable extends StatelessWidget {
   final List<Widget> children;
   final CrossAxisAlignment crossAxisAlignment;
   final MainAxisAlignment mainAxisAlignment;
@@ -20,7 +20,7 @@ class ScrollColumnExpandable extends StatelessWidget {
   final TextBaseline? textBaseline;
   final EdgeInsetsGeometry padding;
 
-  const ScrollColumnExpandable({
+  const BossScrollColumnExpandable({
     super.key,
     required this.children,
     this.crossAxisAlignment = CrossAxisAlignment.center,

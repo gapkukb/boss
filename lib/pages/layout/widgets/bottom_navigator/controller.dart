@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../routes/pages.dart';
-import '../../../../widgets/x_icon.dart';
+import '../../../../widgets/boss_icon.dart';
 
 class Item extends BottomNavigationBarItem {
   final String name;
@@ -18,27 +18,27 @@ class LayoutBottomNavigatorController extends GetxController {
 
   final List<Item> items = const [
     Item(
-      icon: XIcon(icon: Icons.home),
+      icon: BossIcon(icon: Icons.home),
       label: "首页",
       name: Routes.HOME,
     ),
     Item(
-      icon: XIcon(icon: Icons.home),
+      icon: BossIcon(icon: Icons.home),
       label: "登录",
       name: Routes.LOGIN,
     ),
     Item(
-      icon: XIcon(icon: Icons.home),
+      icon: BossIcon(icon: Icons.home),
       label: "论坛",
       name: Routes.LOGIN,
     ),
     Item(
-      icon: XIcon(icon: Icons.home),
+      icon: BossIcon(icon: Icons.home),
       label: "PIN",
       name: Routes.PIN,
     ),
     Item(
-      icon: XIcon(icon: Icons.home),
+      icon: BossIcon(icon: Icons.home),
       label: "我的",
       name: Routes.PROFILE,
     ),

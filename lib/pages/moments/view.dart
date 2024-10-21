@@ -4,7 +4,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../widgets/x_icon.dart';
+import '../../widgets/boss_icon.dart';
 import 'index.dart';
 
 class MomentsPage extends GetView<MomentsController> {
@@ -35,7 +35,7 @@ class MomentsPage extends GetView<MomentsController> {
         ),
         titleText: "远古时代装机员",
         subTitleText: "直播了",
-        icon: XIcon(
+        icon: BossIcon(
           icon: Icons.more_vert,
           onTap: () {},
         ),

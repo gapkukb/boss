@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:nil/nil.dart';
 
-class XIcon extends StatelessWidget {
+class BossIcon extends StatelessWidget {
   final dynamic icon;
   final double size;
   final double? padding;
@@ -12,7 +12,7 @@ class XIcon extends StatelessWidget {
   final BorderRadius? borderRadius;
   final VoidCallback? onTap;
 
-  const XIcon({
+  const BossIcon({
     Key? key,
     this.icon,
     this.size = 24,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../widgets/x_icon.dart';
+import '../../../widgets/boss_icon.dart';
 
 class Option extends StatelessWidget {
   final String title;
@@ -25,7 +25,7 @@ class Option extends StatelessWidget {
           fontSize: 14.sp,
         ),
       ),
-      leading: XIcon(
+      leading: BossIcon(
         icon: icon,
         color: iconColor,
       ),

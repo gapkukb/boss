@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
-import '../../widgets/gutter.dart';
-import '../../widgets/x_countdown_button.dart';
+import '../../widgets/boss_gutter.dart';
+import '../../widgets/boss_countdown_button.dart';
 
 class PinPut extends StatefulWidget {
   const PinPut({super.key});
@@ -51,7 +51,7 @@ class _PinPutState extends State<PinPut> {
               ),
             ),
           ),
-          Gutter.medium(),
+          BossGutter.medium(),
           Pinput(
             length: 6,
             errorBuilder: (errorText, pin) {
@@ -72,10 +72,10 @@ class _PinPutState extends State<PinPut> {
               print(value);
             },
           ),
-          Gutter.medium(),
+          BossGutter.medium(),
           Align(
             alignment: Alignment.centerRight,
-            child: XCountdownButton(autoplay: true),
+            child: BossCountdownButton(autoplay: true),
           ),
         ],
       ),

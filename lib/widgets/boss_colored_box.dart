@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class XColoredBox extends StatelessWidget {
+class BossColoredBox extends StatelessWidget {
   final double? size;
   final double? width;
   final double? height;
@@ -18,7 +18,7 @@ class XColoredBox extends StatelessWidget {
   final Duration animationDuration;
   final BorderRadiusGeometry? borderRadius;
 
-  const XColoredBox({
+  const BossColoredBox({
     super.key,
     this.width,
     this.height,
