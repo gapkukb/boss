@@ -11,6 +11,8 @@ class BossTextfield extends StatefulWidget {
   final bool clearable;
   final bool enabled;
   final bool obscureable;
+  final String initText;
+  final double? height;
 
   const BossTextfield({
     super.key,
@@ -22,15 +24,37 @@ class BossTextfield extends StatefulWidget {
     this.clearable = true,
     this.enabled = true,
     this.obscureable = false,
+    this.initText = '',
+    this.height,
   });
 
   @override
   State<BossTextfield> createState() => _BossTextfieldState();
 }
 
+class _State {
+  final bool obscureText;
+  final bool emptyValue;
+
+  _State({
+    this.emptyValue = true,
+    this.obscureText = false,
+  });
+
+  copyWith({
+    emptyValue = true,
+    obscureText = false,
+  }) {
+    return _State(
+      emptyValue: emptyValue ?? this.emptyValue,
+      obscureText: obscureText ?? this.obscureText,
+    );
+  }
+}
+
 class _BossTextfieldState extends State<BossTextfield> {
   final controller = TextEditingController();
-  late final ValueNotifier<bool> _counter;
+  late final ValueNotifier<_State> _state;
   Widget? suffixIcon;
 
   final style = TextStyle(
@@ -42,45 +66,43 @@ class _BossTextfieldState extends State<BossTextfield> {
   }
 
   clear() {
+    print('object');
     controller.clear();
+  }
+
+  Opacity _buildClearButton() {
+    return Opacity(
+      opacity: _state.value.emptyValue ? 0 : 1,
+      child: GestureDetector(
+        onTap: _state.value.emptyValue ? null : clear,
+        child: Icon(
+          Icons.cancel,
+          size: 48.r,
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _buildVisiblityButton() {
+    return GestureDetector(
+      onTap: () {
+        _state.value = _state.value.copyWith(obscureText: !_state.value.obscureText);
+      },
+      child: Icon(
+        _state.value.obscureText ? Icons.visibility : Icons.visibility_off,
+        size: 48.r,
+      ),
+    );
   }
 
   @override
   void initState() {
-    if (widget.clearable) {
-      _counter = ValueNotifier<bool>(true);
-      controller.addListener(() {
-        _counter.value = controller.text.isEmpty;
-      });
+    controller.text = widget.initText;
+    _state = ValueNotifier<_State>(_State(emptyValue: controller.text.isEmpty));
 
-      suffixIcon = widget.clearable
-          ? ValueListenableBuilder<bool>(
-              valueListenable: _counter,
-              builder: (context, value, _) {
-                return Opacity(
-                  opacity: value ? 0 : 1,
-                  child: GestureDetector(
-                    onTap: clear,
-                    child: Icon(Icons.cancel),
-                  ),
-                );
-              },
-            )
-          : widget.suffixIcon;
-    }
-
-    // if (widget.obscureable) {
-    //   suffixIcon = Row(
-    //     mainAxisSize: MainAxisSize.min,
-    //     children: [
-    //       GestureDetector(
-    //         onTap: widget.obscureable ? clear : null,
-    //         child: Icon(Icons.visibility),
-    //       )
-    //     ],
-    //   );
-    // }
-
+    controller.addListener(() {
+      _state.value = _state.value.copyWith(emptyValue: controller.text.isEmpty);
+    });
     super.initState();
   }
 
@@ -88,6 +110,11 @@ class _BossTextfieldState extends State<BossTextfield> {
   Widget build(BuildContext context) {
     return TextField(
       obscureText: widget.obscureable,
+      style: TextStyle(
+        fontSize: 28.sp,
+        fontWeight: FontWeight.normal,
+        color: Colors.black,
+      ),
       enabled: widget.enabled,
       controller: controller,
       keyboardType: widget.keyboardType,
@@ -103,25 +130,23 @@ class _BossTextfieldState extends State<BossTextfield> {
         labelText: widget.labelText,
         hintText: widget.hintText,
         prefixIcon: widget.prefixIcon,
-        suffixIcon: suffixIcon,
-        suffix: SizedBox(
-          width: 0.r,
-          child: GestureDetector(
-            onTap: widget.obscureable ? clear : null,
-            child: Icon(Icons.visibility),
-          ),
-        ),
-        labelStyle: style.copyWith(
-          color: widget.enabled ? Colors.black : Colors.white,
-        ),
-        hintStyle: style.copyWith(
-          color: Colors.grey,
-        ),
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 24.r,
-          horizontal: 24.r,
-        ),
+        suffixIcon: widget.suffixIcon,
+        contentPadding: EdgeInsets.zero,
         focusColor: Colors.transparent,
+        constraints: BoxConstraints(
+          maxHeight: widget.height ?? 88.r,
+        ),
+        // suffix: ValueListenableBuilder(
+        //   valueListenable: _state,
+        //   builder: (context, value, child) {
+        //     return Wrap(
+        //       children: [
+        //         if (widget.clearable) _buildClearButton(),
+        //         if (widget.obscureable) _buildVisiblityButton(),
+        //       ],
+        //     );
+        //   },
+        // ),
       ),
     );
   }

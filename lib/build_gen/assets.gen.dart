@@ -22,8 +22,14 @@ class $AssetsCaGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/change_passwrod_ok.png
+  AssetGenImage get changePasswrodOk => const AssetGenImage('assets/images/change_passwrod_ok.png');
+
   /// File path: assets/images/login_mood_board.png
   AssetGenImage get loginMoodBoard => const AssetGenImage('assets/images/login_mood_board.png');
+
+  /// File path: assets/images/pay_ok.png
+  AssetGenImage get payOk => const AssetGenImage('assets/images/pay_ok.png');
 
   /// File path: assets/images/sign_in_icon.png
   AssetGenImage get signInIcon => const AssetGenImage('assets/images/sign_in_icon.png');
@@ -37,8 +43,11 @@ class $AssetsImagesGen {
   /// File path: assets/images/user_profile_backgroundimage.jpg
   AssetGenImage get userProfileBackgroundimage => const AssetGenImage('assets/images/user_profile_backgroundimage.jpg');
 
+  /// File path: assets/images/withdraw.png
+  AssetGenImage get withdraw => const AssetGenImage('assets/images/withdraw.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [loginMoodBoard, signInIcon, signUpIcon, userProfileBackgroundimage];
+  List<AssetGenImage> get values => [changePasswrodOk, loginMoodBoard, payOk, signInIcon, signUpIcon, userProfileBackgroundimage, withdraw];
 }
 
 class $AssetsImagesSplashGen {

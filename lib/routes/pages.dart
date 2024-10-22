@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../pages/change_password/index.dart';
 import '../pages/live_stream/index.dart';
 import '../pages/login/index.dart';
 import '../pages/moments/index.dart';
@@ -13,7 +14,7 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.LOGIN;
+  static const initalRoute = Routes.CHANGE_PASSWORD;
 
   static final pages = [
     GetPage(
@@ -52,6 +53,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.SEARCHING,
       page: () => SearchingPage(),
+    ),
+    GetPage(
+      name: Routes.CHANGE_PASSWORD,
+      page: () => ChangePasswordPage(),
     ),
   ];
 }
