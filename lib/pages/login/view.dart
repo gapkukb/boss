@@ -5,6 +5,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import '../../widgets/boss_scroll_column_expandable.dart';
 import '../../widgets/boss_divider.dart';
 import '../../widgets/boss_phone_textfield.dart';
+import '../../widgets/boss_textfield.dart';
 import '../../widgets/index.dart';
 import 'index.dart';
 import 'package:iconify_flutter/icons/carbon.dart';
@@ -79,33 +80,19 @@ class LoginPage extends GetView<LoginController> {
                   ),
                   BossGutter.xlarge(),
                   Assets.images.signInIcon.image(width: 426.r, height: 330.r),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.r),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(10.r, 10.r),
-                          blurRadius: 20.r,
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        TextField(
-                          decoration: InputDecoration(
-                            focusColor: Colors.transparent,
-                            border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                width: 0.r,
-                              ),
-                            ),
-                          ),
-                        ),
-                        TextField(),
-                      ],
-                    ),
+                  BossTextfield(
+                    enabled: true,
+                    hintText: 'Email',
+                    keyboardType: TextInputType.emailAddress,
+                    prefixIcon: Icon(Icons.phone_android),
+                  ),
+                  BossGutter.xlarge(),
+                  BossTextfield(
+                    enabled: true,
+                    obscureable: true,
+                    hintText: 'Enter your password',
+                    keyboardType: TextInputType.emailAddress,
+                    prefixIcon: Icon(Icons.lock_open_rounded),
                   ),
                   Align(
                     alignment: Alignment.centerRight,
