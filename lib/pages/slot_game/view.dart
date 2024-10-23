@@ -30,8 +30,8 @@ class SlotGamePage extends GetView<SlotGameController> {
                 crossAxisCount: 4,
                 crossAxisSpacing: 8.r,
                 mainAxisSpacing: 8.r,
-                colspan: 2,
-                rowspan: 2,
+                colspan: 3,
+                rowspan: 4,
               ),
               itemBuilder: (context, index) {
                 return Container(

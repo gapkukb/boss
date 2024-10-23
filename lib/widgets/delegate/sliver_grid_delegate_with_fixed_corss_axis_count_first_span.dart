@@ -76,12 +76,17 @@ class _Layout extends SliverGridRegularTileLayout {
   @override
   SliverGridGeometry getGeometryForChildIndex(int index) {
     final rawIndex = index;
-
-    if (rawIndex > 0) {
-      index += colspan - 1;
-    }
-    if (rawIndex > 1) {
-      index += 3;
+    // 每增加一行，index增加的3
+    if (rawIndex == 0) {
+      index += 0;
+    } else if (rawIndex == 1) {
+      index += 2;
+    } else if (rawIndex == 2) {
+      index += 5;
+    } else if (rawIndex == 3) {
+      index += 8;
+    } else {
+      index += 11;
     }
 
     final double crossAxisStart = (index % crossAxisCount) * crossAxisStride;
@@ -89,7 +94,7 @@ class _Layout extends SliverGridRegularTileLayout {
     return SliverGridGeometry(
       scrollOffset: (index ~/ crossAxisCount) * mainAxisStride, // 主轴偏移量
       crossAxisOffset: _getOffsetFromStartInCrossAxis(crossAxisStart), // 交叉轴 偏移量
-      mainAxisExtent: index == target ? mainAxisStride * rowspan - mainAxisSpacing : childMainAxisExtent,
+      mainAxisExtent: rawIndex == 0 ? mainAxisStride * rowspan - mainAxisSpacing : childMainAxisExtent,
       crossAxisExtent: rawIndex == 0 ? crossAxisStride * colspan - crossAxisSpacing : childCrossAxisExtent,
     );
   }
