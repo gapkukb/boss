@@ -30,6 +30,7 @@ class BossText extends StatelessWidget {
   final VoidCallback? onTap;
   final Widget? before;
   final Widget? after;
+  final FontWeight? fontWeight;
 
   const BossText({
     super.key,
@@ -59,6 +60,7 @@ class BossText extends StatelessWidget {
     this.before,
     this.after,
     this.fontSize,
+    this.fontWeight,
   });
 
   BossText.ellipsis({
@@ -89,6 +91,7 @@ class BossText extends StatelessWidget {
     this.after,
     this.before,
     this.fontSize,
+    this.fontWeight,
   }) : overflow = TextOverflow.ellipsis;
 
   @override
@@ -100,7 +103,11 @@ class BossText extends StatelessWidget {
       overflow: overflow,
       softWrap: softWrap,
       strutStyle: strutStyle,
-      style: style.copyWith(color: color, fontSize: fontSize),
+      style: style.copyWith(
+        color: color,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+      ),
       textAlign: textAlign,
       textDirection: textDirection,
       textHeightBehavior: textHeightBehavior,

@@ -30,7 +30,7 @@ class App extends StatelessWidget {
           locale: Locale('en', 'US'),
           fallbackLocale: Locale('en', 'US'),
           getPages: AppPages.pages,
-          home: child,
+          // home: child,
           // builder: (context, child) {
           //   child = EasyLoading.init()(context, child);
           //   return Scaffold(
@@ -38,22 +38,8 @@ class App extends StatelessWidget {
           //     body: child,
           //   );
           // },
-          builder: EasyLoading.init(
-            builder: (context, child) {
-              return LayoutPage();
-            },
-          ),
+          builder: EasyLoading.init(),
         );
-        // return MaterialApp(
-        //   debugShowCheckedModeBanner: false,
-        //   title: 'First Method',
-        //   // You can use the library anywhere in the app even in theme
-        //   theme: ThemeData(
-        //     primarySwatch: Colors.blue,
-        //     textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-        //   ),
-        //   home: child,
-        // );
       },
       child: HomePage(),
     );

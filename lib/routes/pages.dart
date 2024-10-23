@@ -4,6 +4,7 @@ import '../pages/live_stream/index.dart';
 import '../pages/login/index.dart';
 import '../pages/moments/index.dart';
 import '../pages/pin/pin.dart';
+import '../pages/referrer/index.dart';
 import '../pages/searching/index.dart';
 import '../pages/settings/index.dart';
 import '../pages/slot_game/index.dart';
@@ -15,7 +16,7 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.SLOT_GAME;
+  static const initalRoute = Routes.REFERRER;
 
   static final pages = [
     GetPage(
@@ -62,6 +63,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.SLOT_GAME,
       page: () => SlotGamePage(),
+    ),
+    GetPage(
+      name: Routes.REFERRER,
+      page: () => ReferrerPage(),
     ),
   ];
 }

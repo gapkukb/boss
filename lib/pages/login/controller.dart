@@ -6,6 +6,7 @@ class LoginController extends GetxController {
   LoginController();
 
   final state = LoginState();
+  final isViaPhone = true.obs;
 
   // tap
   void handleTap(int index) {

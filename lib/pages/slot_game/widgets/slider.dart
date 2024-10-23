@@ -7,8 +7,8 @@ import '../../../build_gen/assets.gen.dart';
 import '../../../widgets/boss_border_box.dart';
 import '../../../widgets/index.dart';
 
-class Slider extends StatelessWidget {
-  const Slider({
+class VerticalMarquee extends StatelessWidget {
+  const VerticalMarquee({
     super.key,
   });
 

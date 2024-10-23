@@ -76,17 +76,51 @@ class _Layout extends SliverGridRegularTileLayout {
   @override
   SliverGridGeometry getGeometryForChildIndex(int index) {
     final rawIndex = index;
+    // colspan: 3,
+    // rowspan: 4,
     // 每增加一行，index增加的3
+    // if (rawIndex == 0) {
+    //   index += 0;
+    // } else if (rawIndex == 1) {
+    //   index += 2;
+    // } else if (rawIndex == 2) {
+    //   index += 5;
+    // } else if (rawIndex == 3) {
+    //   index += 8;
+    // } else {
+    //   index += 11;
+    // }
+
+    //colspan: 2,
+    //rowspan: 3,
+
+    // if (rawIndex == 0) {
+    //   index = 0;
+    // } else if (rawIndex == 1) {
+    //   index = 2;
+    // } else if (rawIndex == 2) {
+    //   index = 3;
+    // } else if (rawIndex == 3) {
+    //   index = 6;
+    // } else if (rawIndex == 4) {
+    //   index = 7;
+    // } else if (rawIndex == 5) {
+    //   index = 10;
+    // } else if (rawIndex == 6) {
+    //   index = 11;
+    // } else {
+    //   index += 5;
+    // }
+
+    final remaning = rowspan * crossAxisCount - rowspan * colspan;
+
     if (rawIndex == 0) {
-      index += 0;
-    } else if (rawIndex == 1) {
-      index += 2;
-    } else if (rawIndex == 2) {
-      index += 5;
-    } else if (rawIndex == 3) {
-      index += 8;
-    } else {
-      index += 11;
+      index = 0;
+    } else if (rawIndex <= remaning) {
+      // 每一行的偏移量
+      final colOffset = rawIndex ~/ crossAxisCount;
+      index = colOffset * rawIndex;
+      print("$rawIndex,$index");
     }
 
     final double crossAxisStart = (index % crossAxisCount) * crossAxisStride;
