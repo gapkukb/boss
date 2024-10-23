@@ -26,7 +26,7 @@ class BossGutter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: size);
+    return SizedBox(width: size, height: size);
   }
 
   /** 4 */

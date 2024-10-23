@@ -7,6 +7,8 @@ import 'routes/pages.dart';
 import 'theme/app_theme.dart';
 import 'pages/home/index.dart';
 import 'pages/layout/index.dart';
+import 'theme/dark_theme.dart';
+import 'theme/light_theme.dart';
 
 class App extends StatelessWidget {
   @override
@@ -20,7 +22,9 @@ class App extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: AppPages.initalRoute,
-          theme: appTheme,
+          theme: lightTheme,
+          darkTheme: dartTheme,
+          themeMode: ThemeMode.system,
           translationsKeys: AppLocales.translations,
           defaultTransition: Transition.rightToLeftWithFade,
           locale: Locale('en', 'US'),

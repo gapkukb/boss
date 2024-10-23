@@ -22,6 +22,7 @@ class BossText extends StatelessWidget {
   final ui.TextHeightBehavior? textHeightBehavior;
   final Color? selectionColor;
   final String text;
+  final double? fontSize;
   final EdgeInsets? padding;
   final Color? color;
   final Color? bgcolor;
@@ -57,6 +58,7 @@ class BossText extends StatelessWidget {
     this.onTap,
     this.before,
     this.after,
+    this.fontSize,
   });
 
   BossText.ellipsis({
@@ -68,7 +70,7 @@ class BossText extends StatelessWidget {
     this.softWrap,
     this.strutStyle,
     this.style = const TextStyle(),
-    this.textAlign,
+    this.textAlign = TextAlign.start,
     this.textDirection,
     this.textHeightBehavior,
     this.textScaler,
@@ -86,6 +88,7 @@ class BossText extends StatelessWidget {
     this.onTap,
     this.after,
     this.before,
+    this.fontSize,
   }) : overflow = TextOverflow.ellipsis;
 
   @override
@@ -97,7 +100,7 @@ class BossText extends StatelessWidget {
       overflow: overflow,
       softWrap: softWrap,
       strutStyle: strutStyle,
-      style: style.copyWith(color: color),
+      style: style.copyWith(color: color, fontSize: fontSize),
       textAlign: textAlign,
       textDirection: textDirection,
       textHeightBehavior: textHeightBehavior,

@@ -12,4 +12,5 @@ abstract class Routes {
   static const CHANGE_PASSWORD = '/user/change-password';
   static const SETTINGS = '/settings';
   static const MOMENTS = '/moments';
+  static const SLOT_GAME = '/slot_game';
 }

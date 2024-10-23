@@ -6,6 +6,7 @@ import '../pages/moments/index.dart';
 import '../pages/pin/pin.dart';
 import '../pages/searching/index.dart';
 import '../pages/settings/index.dart';
+import '../pages/slot_game/index.dart';
 import '../pages/user/profile/index.dart';
 import '../pages/home/index.dart';
 import '../pages/splash/index.dart';
@@ -14,7 +15,7 @@ import '../pages/recommendation/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.CHANGE_PASSWORD;
+  static const initalRoute = Routes.SLOT_GAME;
 
   static final pages = [
     GetPage(
@@ -57,6 +58,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.CHANGE_PASSWORD,
       page: () => ChangePasswordPage(),
+    ),
+    GetPage(
+      name: Routes.SLOT_GAME,
+      page: () => SlotGamePage(),
     ),
   ];
 }
