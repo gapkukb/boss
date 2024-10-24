@@ -42,7 +42,7 @@ class ReviewsPage extends GetView<ReviewsController> {
             scrolledUnderElevation: 0,
           ),
           body: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 32.r, vertical: 32.r),
+            padding: EdgeInsets.symmetric(horizontal: 32.r, vertical: 0.r),
             itemCount: 100,
             cacheExtent: 100.r,
             itemBuilder: (context, index) {

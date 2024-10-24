@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'locales/app_locales.dart';
+import 'pages/splash/starting.dart';
 import 'routes/pages.dart';
 import 'theme/app_theme.dart';
 import 'pages/home/index.dart';
 import 'pages/layout/index.dart';
-import 'theme/dark_theme.dart';
-import 'theme/light_theme.dart';
+import 'theme/app_dark_theme.dart';
+import 'theme/app_light_theme.dart';
 
 class App extends StatelessWidget {
   @override
@@ -18,6 +19,7 @@ class App extends StatelessWidget {
       designSize: const Size(750, 1336),
       minTextAdapt: true,
       splitScreenMode: true,
+      child: StartingPage(),
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
@@ -30,7 +32,7 @@ class App extends StatelessWidget {
           locale: Locale('en', 'US'),
           fallbackLocale: Locale('en', 'US'),
           getPages: AppPages.pages,
-          // home: child,
+          home: child,
           // builder: (context, child) {
           //   child = EasyLoading.init()(context, child);
           //   return Scaffold(
@@ -41,7 +43,6 @@ class App extends StatelessWidget {
           builder: EasyLoading.init(),
         );
       },
-      child: HomePage(),
     );
   }
 }
