@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../build_gen/assets.gen.dart';
 import '../../../widgets/boss_cell.dart';
-import '../../../widgets/boss_icon.dart';
+import '../../../widgets/boss_clipboard.dart';
 import '../../../widgets/boss_image_picker.dart';
 import '../../../widgets/boss_text.dart';
 import 'index.dart';
@@ -27,8 +27,8 @@ class UserHomePage extends GetView<UserHomeController> {
                   children: [
                     BossCell(
                       tileColor: Colors.white,
-                      title: BossText(text: "Avatar"),
-                      value: BossImagePicker(
+                      titleWidget: BossText("Avatar"),
+                      valueWidget: BossImagePicker(
                         child: CircleAvatar(
                           child: Assets.images.changePasswrodOk.image(),
                         ),
@@ -39,18 +39,28 @@ class UserHomePage extends GetView<UserHomeController> {
                 BossCellGroup(
                   children: [
                     BossCell(
-                      tileColor: Colors.white,
-                      title: BossText(text: "Nickname"),
-                      value: BossText(text: "PlayIFBo9"),
+                      titleWidget: BossText("Nickname"),
+                      valueWidget: BossText("PlayIFBo9"),
                       onTap: () {
                         // controller.toUserDetail();
                       },
                     ),
                     BossCell(
-                      tileColor: Colors.white,
-                      title: BossText(text: "User ID"),
-                      value: BossText(text: "PlayIFBo9"),
-                      extra: BossIcon(icon: Icons.copy),
+                      titleText: "User ID",
+                      valueText: "PlayIFBo9",
+                      extra: BossClipboard("PlayIFBo9"),
+                      onTap: () {
+                        // controller.toUserDetail();
+                      },
+                    ),
+                  ],
+                ),
+                BossCellGroup(
+                  children: [
+                    BossCell(
+                      leading: ImageIcon(Assets.images.changePasswrodOk.image().image),
+                      titleText: "移动网络",
+                      valueText: "已开启",
                       onTap: () {
                         // controller.toUserDetail();
                       },

@@ -5,7 +5,8 @@ setupEasyLoading() {
   EasyLoading.instance
     ..indicatorType = EasyLoadingIndicatorType.ring
     ..loadingStyle = EasyLoadingStyle.dark
-    ..maskType = EasyLoadingMaskType.custom
+    ..maskType = EasyLoadingMaskType.black
+    // ..maskColor = Colors.black.withOpacity(0.5)
     ..indicatorSize = 32.0
     ..lineWidth = 3.0
     ..fontSize = 12.0
@@ -15,7 +16,6 @@ setupEasyLoading() {
     ..backgroundColor = Colors.green
     ..indicatorColor = Colors.yellow
     ..textColor = Colors.yellow
-    ..maskColor = Colors.blue.withOpacity(0.5)
-    ..userInteractions = true
+    ..userInteractions = false
     ..dismissOnTap = false;
 }

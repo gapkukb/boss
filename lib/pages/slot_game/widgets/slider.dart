@@ -53,7 +53,7 @@ class _SliderItem extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.r),
             child: BossText(
-              text: "bi***W6v",
+              "bi***W6v",
               fontSize: 24.sp,
             ),
           ),
@@ -61,20 +61,20 @@ class _SliderItem extends StatelessWidget {
           BossBorderBox(
             padding: EdgeInsets.symmetric(horizontal: 12.r),
             child: BossText(
-              text: "Big Win",
+              "Big Win",
               fontSize: 24.sp,
               color: Colors.red,
             ),
           ),
           BossGutter.mini(),
           BossText(
-            text: "AM 10:26:02",
+            "AM 10:26:02",
             fontSize: 24.sp,
             color: Colors.grey,
           ),
           Spacer(),
           BossText(
-            text: "11,670",
+            "11,670",
             fontSize: 24.sp,
           ),
           BossIcon(icon: SimpleIcons.bitcoin),

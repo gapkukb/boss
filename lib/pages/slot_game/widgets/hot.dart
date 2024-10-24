@@ -19,7 +19,7 @@ class Hot extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BossText(
-          text: "HOT GAMES",
+          "HOT GAMES",
           textAlign: TextAlign.start,
           fontSize: 24.sp,
           style: TextStyle(

@@ -78,7 +78,7 @@ class RewardsPage extends GetView<RewardsController> {
                   ),
                 ),
                 BossText(
-                  text: "23 OCT",
+                  "23 OCT",
                   fontSize: 24.sp,
                 ),
               ],

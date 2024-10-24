@@ -44,7 +44,7 @@ class MyReward extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              title: BossText(text: "我的邀请(0)"),
+              title: BossText("我的邀请(0)"),
               subtitle: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
                 child: Stack(
@@ -58,7 +58,7 @@ class MyReward extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: BossText(
-                        text: "MY: 50%",
+                        "MY: 50%",
                         fontSize: 16.r,
                       ),
                     ),

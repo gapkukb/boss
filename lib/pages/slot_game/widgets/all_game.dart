@@ -40,7 +40,7 @@ class AllGame extends StatelessWidget {
               ),
               BossGutter.small(),
               BossText.ellipsis(
-                text: "FORTUNE SLOT GAME",
+                "FORTUNE SLOT GAME",
                 textAlign: TextAlign.start,
                 fontSize: 24.sp,
                 style: TextStyle(
@@ -54,7 +54,7 @@ class AllGame extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BossText(
-                      text: "4.3K",
+                      "4.3K",
                       fontSize: 24.sp,
                     ),
                     BossIcon(

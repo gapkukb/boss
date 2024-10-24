@@ -96,13 +96,13 @@ class _TopWinnerItem extends StatelessWidget {
             ),
           ),
           BossText(
-            text: rankText,
+            rankText,
             color: Colors.white.withOpacity(0.9),
           ),
           FittedBox(
             fit: BoxFit.scaleDown,
             child: BossText(
-              text: reward.amountalize,
+              reward.amountalize,
               fontSize: 40.sp,
               color: Colors.white,
               fontWeight: FontWeight.bold,

@@ -3,6 +3,7 @@ import '../pages/change_password/index.dart';
 import '../pages/live_stream/index.dart';
 import '../pages/login/index.dart';
 import '../pages/moments/index.dart';
+import '../pages/notification/notification/index.dart';
 import '../pages/pin/pin.dart';
 import '../pages/referrer/index.dart';
 import '../pages/rewards/index.dart';
@@ -18,7 +19,7 @@ import '../pages/user/user_home/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.USER;
+  static const initalRoute = Routes.NOTIFICATION;
 
   static final pages = [
     GetPage(
@@ -77,6 +78,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.USER,
       page: () => UserHomePage(),
+    ),
+    GetPage(
+      name: Routes.NOTIFICATION,
+      page: () => NotificationPage(),
     ),
   ];
 }

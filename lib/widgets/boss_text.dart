@@ -32,9 +32,9 @@ class BossText extends StatelessWidget {
   final Widget? after;
   final FontWeight? fontWeight;
 
-  const BossText({
+  const BossText(
+    this.text, {
     super.key,
-    required this.text,
     this.locale,
     this.maxLines,
     this.overflow,
@@ -63,9 +63,9 @@ class BossText extends StatelessWidget {
     this.fontWeight,
   });
 
-  BossText.ellipsis({
+  const BossText.ellipsis(
+    this.text, {
     super.key,
-    required this.text,
     this.locale,
     this.maxLines = 1,
     // this.overflow,

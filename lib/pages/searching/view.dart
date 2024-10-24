@@ -74,7 +74,7 @@ class SearchingPage extends GetView<SearchingController> {
                 Wrap(
                   children: [
                     BossText.ellipsis(
-                      text: "item.expandedValue",
+                      "item.expandedValue",
                       bgcolor: Colors.black,
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),

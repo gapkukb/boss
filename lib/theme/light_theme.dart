@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-final lightTheme = ThemeData.light().copyWith(
+import 'app_theme.dart';
+
+final lightTheme = appTheme.copyWith(
+  brightness: Brightness.light,
   scaffoldBackgroundColor: Colors.white,
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.white,

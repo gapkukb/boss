@@ -27,7 +27,7 @@ class BossCard extends StatelessWidget {
       children: [
         title ??
             BossText(
-              text: titleText!,
+              titleText!,
               fontSize: 48.sp,
             ),
         BossGutter.small(),
