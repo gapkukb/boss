@@ -10,6 +10,7 @@ import 'widgets/my_reward.dart';
 import 'widgets/rule.dart';
 import 'widgets/top_winner.dart';
 
+/** 推广/邀请好友 */
 class ReferrerPage extends GetView<ReferrerController> {
   const ReferrerPage({super.key});
 
