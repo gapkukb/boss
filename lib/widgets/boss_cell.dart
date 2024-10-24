@@ -27,6 +27,7 @@ enum ARROW_TYPE {
 
 class BossCell extends ListTile {
   final Widget? value;
+  final Widget? extra;
   final ARROW_TYPE arrowType;
 
   BossCell({
@@ -67,13 +68,15 @@ class BossCell extends ListTile {
     super.titleAlignment,
     this.arrowType = ARROW_TYPE.RIGHT,
     this.value,
+    this.extra,
   }) : super(
           key: key,
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               if (value != null) value,
-              if (arrowType != ARROW_TYPE.NONE) arrowType.icon,
+              if (extra != null) extra,
+              if (extra == null && arrowType != ARROW_TYPE.NONE) arrowType.icon,
             ],
           ),
         );
@@ -81,10 +84,14 @@ class BossCell extends ListTile {
 
 class BossCellGroup extends StatelessWidget {
   final List<Widget> children;
+  final Color borderColor;
+  final double? borderRadius;
 
   const BossCellGroup({
     Key? key,
     required this.children,
+    this.borderColor = Colors.grey,
+    this.borderRadius,
   }) : super(key: key);
 
   @override
@@ -98,8 +105,8 @@ class BossCellGroup extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       color: Colors.white,
       shape: RoundedRectangleBorder(
-        side: BorderSide(width: 0.5, color: Colors.grey),
-        borderRadius: BorderRadius.circular(16.r),
+        side: BorderSide(width: 0.5, color: borderColor),
+        borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
