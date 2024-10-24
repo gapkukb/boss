@@ -5,11 +5,9 @@ import 'setup/index.dart';
 import 'app.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   setupSystem();
   setupEasyLoading();
-
-  WidgetsFlutterBinding.ensureInitialized();
-
   await Future.wait([
     setupHttpCertificate(),
     setupSentry(),
