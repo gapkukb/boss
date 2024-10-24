@@ -13,11 +13,12 @@ import '../pages/user/profile/index.dart';
 import '../pages/home/index.dart';
 import '../pages/splash/index.dart';
 import '../pages/recommendation/index.dart';
+import '../pages/user/user_home/index.dart';
 
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.REWARDS;
+  static const initalRoute = Routes.USER;
 
   static final pages = [
     GetPage(
@@ -72,6 +73,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.REWARDS,
       page: () => RewardsPage(),
+    ),
+    GetPage(
+      name: Routes.USER,
+      page: () => UserHomePage(),
     ),
   ];
 }

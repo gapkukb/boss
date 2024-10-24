@@ -8,6 +8,7 @@ abstract class Routes {
   static const SEARCHING = '/home/searching.';
   static const LOGIN = '/login';
   static const PIN = '/pin';
+  static const USER = '/user';
   static const PROFILE = '/user/profile';
   static const REFERRER = '/user/referrer';
   static const REWARDS = '/rewards';
