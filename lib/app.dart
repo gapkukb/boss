@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'locales/app_locales.dart';
 import 'pages/splash/starting.dart';
 import 'routes/pages.dart';
-import 'theme/app_theme.dart';
 import 'pages/home/index.dart';
 import 'pages/layout/index.dart';
 import 'theme/app_dark_theme.dart';

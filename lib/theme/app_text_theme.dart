@@ -2,25 +2,29 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
-final title = TextStyle(
-  fontSize: 24,
-  fontWeight: FontWeight.bold,
-  color: AppColors.primaryColor,
-);
+class AppTextTheme {
+  AppTextTheme._();
 
-final subTitle = TextStyle(
-  fontSize: 16,
-  fontWeight: FontWeight.bold,
-  color: AppColors.primaryColor,
-);
+  final title = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
+  );
 
-final normal = TextStyle(
-  fontSize: 14,
-  color: Colors.grey,
-);
+  final subTitle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
+  );
 
-final content = TextStyle(
-  fontSize: 18,
-  color: Colors.grey,
-  letterSpacing: 0.8,
-);
+  final normal = TextStyle(
+    fontSize: 14,
+    color: Colors.grey,
+  );
+
+  final content = TextStyle(
+    fontSize: 18,
+    color: Colors.grey,
+    letterSpacing: 0.8,
+  );
+}
