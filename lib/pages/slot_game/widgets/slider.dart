@@ -77,7 +77,7 @@ class _SliderItem extends StatelessWidget {
             "11,670",
             fontSize: 24.sp,
           ),
-          BossIcon(icon: SimpleIcons.bitcoin),
+          BossIcon(SimpleIcons.bitcoin),
         ],
       ),
     );

@@ -58,7 +58,7 @@ class AllGame extends StatelessWidget {
                       fontSize: 24.sp,
                     ),
                     BossIcon(
-                      icon: Icons.favorite_border,
+                      Icons.favorite_border,
                       size: 48.sp,
                       onTap: () {
                         print("like");

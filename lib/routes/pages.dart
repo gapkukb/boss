@@ -6,6 +6,7 @@ import '../pages/moments/index.dart';
 import '../pages/notification/notification/index.dart';
 import '../pages/pin/pin.dart';
 import '../pages/referrer/index.dart';
+import '../pages/reviews/index.dart';
 import '../pages/rewards/index.dart';
 import '../pages/searching/index.dart';
 import '../pages/settings/index.dart';
@@ -19,7 +20,7 @@ import '../pages/user/user_home/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.NOTIFICATION;
+  static const initalRoute = Routes.REVIEWS;
 
   static final pages = [
     GetPage(
@@ -82,6 +83,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.NOTIFICATION,
       page: () => NotificationPage(),
+    ),
+    GetPage(
+      name: Routes.REVIEWS,
+      page: () => ReviewsPage(),
     ),
   ];
 }

@@ -26,7 +26,7 @@ class Option extends StatelessWidget {
         ),
       ),
       leading: BossIcon(
-        icon: icon,
+        icon,
         color: iconColor,
       ),
       trailing: Iconify(

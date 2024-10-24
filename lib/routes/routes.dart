@@ -17,4 +17,5 @@ abstract class Routes {
   static const MOMENTS = '/moments';
   static const SLOT_GAME = '/slot_game';
   static const NOTIFICATION = '/notification';
+  static const REVIEWS = '/reviews';
 }

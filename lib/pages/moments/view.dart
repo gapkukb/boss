@@ -36,7 +36,7 @@ class MomentsPage extends GetView<MomentsController> {
         titleText: "远古时代装机员",
         subTitleText: "直播了",
         icon: BossIcon(
-          icon: Icons.more_vert,
+          Icons.more_vert,
           onTap: () {},
         ),
       ),

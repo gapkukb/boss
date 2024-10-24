@@ -13,9 +13,9 @@ class BossIcon extends StatelessWidget {
   final BorderRadius? borderRadius;
   final VoidCallback? onTap;
 
-  const BossIcon({
+  const BossIcon(
+    this.icon, {
     Key? key,
-    this.icon,
     this.size,
     this.color,
     this.fgcolor,

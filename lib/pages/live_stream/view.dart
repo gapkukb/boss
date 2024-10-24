@@ -66,7 +66,7 @@ class LiveStreamPage extends GetView<LiveStreamController> {
           size: GFSize.SMALL,
         ),
         trailing: BossIcon(
-          icon: Icons.more_vert,
+          Icons.more_vert,
           onTap: () {},
         ),
       ),

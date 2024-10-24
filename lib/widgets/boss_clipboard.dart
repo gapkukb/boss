@@ -17,7 +17,7 @@ class BossClipboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _copy,
-      child: child ?? BossIcon(icon: Icons.copy),
+      child: child ?? BossIcon(Icons.copy),
     );
   }
 

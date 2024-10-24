@@ -99,7 +99,7 @@ class RecommendationPage extends GetView<RecommendationController> {
         contentPadding: EdgeInsets.zero,
         minVerticalPadding: 0,
         leading: BossIcon(
-          icon: Icons.live_tv,
+          Icons.live_tv,
         ),
         horizontalTitleGap: 0,
         title: Text(
@@ -110,7 +110,7 @@ class RecommendationPage extends GetView<RecommendationController> {
           ),
         ),
         trailing: BossIcon(
-          icon: Icons.more_vert,
+          Icons.more_vert,
           onTap: () {},
         ),
       ),

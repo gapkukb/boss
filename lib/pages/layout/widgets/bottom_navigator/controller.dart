@@ -18,27 +18,27 @@ class LayoutBottomNavigatorController extends GetxController {
 
   final List<Item> items = const [
     Item(
-      icon: BossIcon(icon: Icons.home),
+      icon: BossIcon(Icons.home),
       label: "首页",
       name: Routes.HOME,
     ),
     Item(
-      icon: BossIcon(icon: Icons.home),
+      icon: BossIcon(Icons.home),
       label: "登录",
       name: Routes.LOGIN,
     ),
     Item(
-      icon: BossIcon(icon: Icons.home),
+      icon: BossIcon(Icons.home),
       label: "论坛",
       name: Routes.LOGIN,
     ),
     Item(
-      icon: BossIcon(icon: Icons.home),
+      icon: BossIcon(Icons.home),
       label: "PIN",
       name: Routes.PIN,
     ),
     Item(
-      icon: BossIcon(icon: Icons.home),
+      icon: BossIcon(Icons.home),
       label: "我的",
       name: Routes.PROFILE,
     ),
