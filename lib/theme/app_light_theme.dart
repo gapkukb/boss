@@ -23,4 +23,5 @@ final lightTheme = ThemeData(
     modalBackgroundColor: Colors.transparent,
     // modalBarrierColor: Colors.white,
   ),
+  dividerTheme: DividerThemeData(color: Colors.grey.shade300, space: 0, thickness: 1.r),
 );
