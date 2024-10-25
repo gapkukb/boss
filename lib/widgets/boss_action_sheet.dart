@@ -34,7 +34,9 @@ class BossActionSheet extends StatelessWidget {
                   children: children.map((child) {
                     return GestureDetector(
                       onTap: () {
-                        Get.back();
+                        Get.back(
+                          result: child.id,
+                        );
                         if (!child.enabled) return;
                         child.onTap!();
                         onChoose?.call(child);
@@ -50,6 +52,7 @@ class BossActionSheet extends StatelessWidget {
             ),
             BossGutter.small(),
             BossActionSheetItem(
+              id: "cancel",
               title: "Cancel",
               rounded: true,
               onTap: _onCancel,
@@ -79,8 +82,11 @@ class BossActionSheetItem extends ListTile {
     borderRadius: BorderRadius.circular(16.r),
   );
 
+  final String id;
+
   BossActionSheetItem({
     Key? key,
+    required this.id,
     final String? subtitle,
     final dynamic icon,
     final Color? textColor,

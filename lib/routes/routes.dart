@@ -19,4 +19,5 @@ abstract class Routes {
   static const NOTIFICATION = '/notification';
   static const REVIEWS = '/reviews';
   static const PROFILE_EDITOR = '/profile_editor';
+  static const ME = '/me';
 }

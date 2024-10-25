@@ -136,24 +136,28 @@ class ProfileEditorPage extends GetView<ProfileEditorController> {
   }
 
   void updateAvatar() async {
-    Get.bottomSheet(
+    final action = await Get.bottomSheet<String>(
       BossActionSheet(
         children: [
           BossActionSheetItem(
+            id: '1',
             title: "Choose Photo",
             onTap: () {
               print('object');
             },
           ),
           BossActionSheetItem(
+            id: '2',
             title: "Web Search",
             onTap: Get.back,
           ),
           BossActionSheetItem(
+            id: '3',
             title: "View Photo",
             onTap: Get.back,
           ),
           BossActionSheetItem(
+            id: '4',
             title: "Remove Photo",
             textColor: Colors.red,
             onTap: Get.back,

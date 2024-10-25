@@ -11,6 +11,7 @@ import '../pages/rewards/index.dart';
 import '../pages/searching/index.dart';
 import '../pages/settings/index.dart';
 import '../pages/slot_game/index.dart';
+import '../pages/user/me_index/index.dart';
 import '../pages/user/profile/index.dart';
 import '../pages/home/index.dart';
 import '../pages/splash/index.dart';
@@ -21,7 +22,7 @@ import '../pages/user/user_home/index.dart';
 part './routes.dart';
 
 abstract class AppPages {
-  static const initalRoute = Routes.PROFILE_EDITOR;
+  static const initalRoute = Routes.ME;
 
   static final pages = [
     GetPage(
@@ -92,6 +93,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.PROFILE_EDITOR,
       page: () => ProfileEditorPage(),
+    ),
+    GetPage(
+      name: Routes.ME,
+      page: () => MeIndexPage(),
     ),
   ];
 }
