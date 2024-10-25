@@ -97,7 +97,6 @@ class BossCell extends ListTile {
                       titleText,
                       color: Colors.black,
                       fontSize: 32.sp,
-                      fontWeight: FontWeight.bold,
                     )),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
@@ -119,13 +118,13 @@ class BossCell extends ListTile {
 
 class BossCellGroup extends StatelessWidget {
   final List<Widget> children;
-  final Color borderColor;
+  final Color? borderColor;
   final double? borderRadius;
 
   const BossCellGroup({
     Key? key,
     required this.children,
-    this.borderColor = Colors.grey,
+    this.borderColor,
     this.borderRadius,
   }) : super(key: key);
 
@@ -136,17 +135,21 @@ class BossCellGroup extends StatelessWidget {
       return [child, Divider(height: 0, thickness: 1.r)];
     }).toList();
 
+    final widget = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: widgets,
+    );
+
+    if (borderColor == null) return widget;
+
     return Card.outlined(
       clipBehavior: Clip.antiAlias,
       color: Colors.white,
       shape: RoundedRectangleBorder(
-        side: BorderSide(width: 0.5, color: borderColor),
+        side: BorderSide(width: 0.5, color: borderColor!),
         borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: widgets,
-      ),
+      child: widget,
     );
   }
 }
