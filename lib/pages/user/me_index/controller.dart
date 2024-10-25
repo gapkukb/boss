@@ -42,7 +42,6 @@ class MeIndexController extends GetxController {
   void _onScrolling() {
     offset.value = sc.offset;
     if (expanedable) {
-      _expand();
     } else if (collapseable) {}
   }
 
