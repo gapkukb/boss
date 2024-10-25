@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:getwidget/getwidget.dart';
 import '../../../build_gen/assets.gen.dart';
+import '../../../widgets/boss_action_sheet.dart';
 import '../../../widgets/boss_cell.dart';
 import '../../../widgets/index.dart';
 import 'index.dart';
@@ -49,16 +50,16 @@ class ProfileEditorPage extends GetView<ProfileEditorController> {
                     child: CircleAvatar(
                       backgroundColor: Colors.grey,
                       backgroundImage: Assets.images.changePasswrodOk.image().image,
-                      radius: 48.r,
+                      radius: 64.r,
                       child: Material(
                         shape: CircleBorder(),
                         color: Colors.black38,
                         child: SizedBox.square(
-                          dimension: 96.r,
+                          dimension: 128.r,
                           child: BossIcon(
                             Icons.camera_alt,
                             fgcolor: Colors.white,
-                            size: 64.sp,
+                            size: 108.sp,
                           ),
                         ),
                       ),
@@ -136,78 +137,29 @@ class ProfileEditorPage extends GetView<ProfileEditorController> {
 
   void updateAvatar() async {
     Get.bottomSheet(
-      SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(16.r),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                tileColor: Colors.white,
-                title: Text("Choose an option"),
-              ),
-              BossGutter.small(),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.r),
-                  // color: Colors.white,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ActionSheetOption(
-                      title: "Choose Photo",
-                      onTap: Get.back,
-                    ),
-                    ActionSheetOption(
-                      title: "Web Search",
-                      onTap: Get.back,
-                    ),
-                    ActionSheetOption(
-                      title: "View Photo",
-                      onTap: Get.back,
-                    ),
-                    ActionSheetOption(
-                      title: "Remove Photo",
-                      onTap: Get.back,
-                    ),
-                  ],
-                ),
-              ),
-              BossGutter.small(),
-              ActionSheetOption(
-                title: "Cancel",
-                onTap: Get.back,
-              ),
-            ],
+      BossActionSheet(
+        children: [
+          BossActionSheetItem(
+            title: "Choose Photo",
+            onTap: () {
+              print('object');
+            },
           ),
-        ),
+          BossActionSheetItem(
+            title: "Web Search",
+            onTap: Get.back,
+          ),
+          BossActionSheetItem(
+            title: "View Photo",
+            onTap: Get.back,
+          ),
+          BossActionSheetItem(
+            title: "Remove Photo",
+            textColor: Colors.red,
+            onTap: Get.back,
+          ),
+        ],
       ),
     );
   }
-}
-
-class ActionSheetOption extends ListTile {
-  final double? borderRadius;
-
-  ActionSheetOption({
-    Key? key,
-    required String title,
-    required VoidCallback onTap,
-    this.borderRadius,
-  }) : super(
-          key: key,
-          tileColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
-            side: BorderSide(
-              color: Colors.red,
-              width: 1.r,
-              style: BorderStyle.solid,
-              strokeAlign: BorderSide.strokeAlignInside,
-            ),
-          ),
-          title: Text(title, textAlign: TextAlign.center),
-          onTap: onTap,
-        );
 }
