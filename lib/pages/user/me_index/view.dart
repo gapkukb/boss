@@ -19,7 +19,7 @@ class MeIndexPage extends GetView<MeIndexController> {
         return Scaffold(
           body: Listener(
             // behavior: HitTestBehavior.opaque,
-            onPointerUp: controller.onPointerUp,
+            // onPointerUp: controller.onPointerUp,
             child: CustomScrollView(
               physics: BouncingScrollPhysics(),
               controller: controller.sc,
@@ -29,7 +29,9 @@ class MeIndexPage extends GetView<MeIndexController> {
                     backgroundColor: Colors.blue,
                     stretch: true,
                     iconTheme: IconThemeData(color: Colors.white),
-                    expandedHeight: controller.realExpanedheight.value,
+                    // expandedHeight: controller.realExpanedheight.value,
+                    stretchTriggerOffset: controller.strechOffset.value,
+                    onStretchTrigger: controller.onStretchTrigger,
                     // floating: true,
                     // snap: true,
                     pinned: true,
@@ -64,13 +66,12 @@ class MeIndexPage extends GetView<MeIndexController> {
                     ],
 
                     flexibleSpace: FlexibleSpaceBar(
-                      // stretchModes: [
-                      //   StretchMode.zoomBackground,
-                      //   StretchMode.fadeTitle,
-                      //   StretchMode.blurBackground,
-                      // ],
+                      stretchModes: [
+                        StretchMode.zoomBackground,
+                        // StretchMode.fadeTitle,
+                        // StretchMode.blurBackground,
+                      ],
                       expandedTitleScale: 1.05,
-                      // centerTitle: true,
                       collapseMode: CollapseMode.pin,
                       titlePadding: EdgeInsets.only(left: controller.titleOffset),
                       title: ListTile(

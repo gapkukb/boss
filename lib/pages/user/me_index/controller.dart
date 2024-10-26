@@ -15,6 +15,7 @@ class MeIndexController extends GetxController {
   MeIndexController();
   final offset = 0.0.obs;
   final realExpanedheight = (expanedHeight).obs;
+  final strechOffset = (strechHeight / 2).obs;
   final sc = ScrollController();
   bool _expanded = false;
 
@@ -60,13 +61,13 @@ class MeIndexController extends GetxController {
   }
 
   void onPointerUp(PointerUpEvent event) async {
-    if (expanedable) {
-      _expand();
-    } else if (collapseable) {
-      _collapse();
-    } else if (_expanded) {
-      sc.animateTo(0, duration: Duration(milliseconds: 200), curve: Curves.linear);
-    }
+    // if (expanedable) {
+    //   _expand();
+    // } else if (collapseable) {
+    //   _collapse();
+    // } else if (_expanded) {
+    //   sc.animateTo(0, duration: Duration(milliseconds: 200), curve: Curves.linear);
+    // }
   }
 
   @override
@@ -85,5 +86,9 @@ class MeIndexController extends GetxController {
     sc.removeListener(_onScrolling);
     sc.dispose();
     super.onClose();
+  }
+
+  Future onStretchTrigger() async {
+    print('trigger');
   }
 }
