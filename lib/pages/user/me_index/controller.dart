@@ -5,12 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
-class MeIndexController extends GetxController {
+class MeIndexController extends GetxController with GetSingleTickerProviderStateMixin {
   static const double _maxOffset = 60;
   static const double _minOffset = 16;
   static const double expanedHeight = 140;
   static const double strechHeight = 100;
   static const double topOffset = -30;
+  late final animation;
 
   MeIndexController();
   final offset = 0.0.obs;
@@ -73,6 +74,10 @@ class MeIndexController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    animation = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 100),
+    );
   }
 
   @override
