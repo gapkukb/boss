@@ -25,7 +25,7 @@ class MeIndexPage extends GetView<MeIndexController> {
               physics: BouncingScrollPhysics(),
               controller: controller.sc,
               slivers: [
-                TelegramAppBar(),
+                TelegramAppBar(controller.sc),
                 SliverList.separated(
                   itemBuilder: (context, index) {
                     // return SizedBox(

@@ -13,7 +13,7 @@ class TelegramAppBar extends StatefulWidget {
   final double? stretchHeight;
   final double? titleGap;
   final double? backIconSize;
-  final double? avatarRadius;
+  final double? avatarSize;
 
   const TelegramAppBar(
     this.sc, {
@@ -23,7 +23,7 @@ class TelegramAppBar extends StatefulWidget {
     this.stretchHeight,
     this.titleGap,
     this.backIconSize,
-    this.avatarRadius,
+    this.avatarSize,
   });
 
   @override
@@ -43,8 +43,9 @@ class _TelegramAppBarState extends State<TelegramAppBar> with SingleTickerProvid
         height: widget.height ?? 190.r,
         expandHeight: widget.expandHeight ?? 190.r,
         stretchHeight: widget.stretchHeight ?? 370.r,
-        backIconSize: widget.backIconSize ?? 50.r,
-        minAvatarRadius: widget.avatarRadius ?? 80.r,
+        titleGap: widget.titleGap ?? 44.r,
+        backIconSize: widget.backIconSize ?? 44.r,
+        avatarSize: widget.avatarSize ?? 44.r,
         statusBarHeight: statusBarHeight,
       ),
     );
@@ -71,15 +72,13 @@ class _TelegramAppBarState extends State<TelegramAppBar> with SingleTickerProvid
 }
 
 class _TelegramAppBarDelegate extends SliverPersistentHeaderDelegate {
-  static final minAvatarLeft = 40.r;
-  static final maxAvatarRadius = 120.r;
-
   final AnimationController controller;
   final double height;
   final double expandHeight;
   final double stretchHeight;
+  final double titleGap;
   final double backIconSize;
-  final double minAvatarRadius;
+  final double avatarSize;
   final double statusBarHeight;
 
   _TelegramAppBarDelegate({
@@ -87,65 +86,24 @@ class _TelegramAppBarDelegate extends SliverPersistentHeaderDelegate {
     required this.height,
     required this.expandHeight,
     required this.stretchHeight,
+    required this.titleGap,
     required this.backIconSize,
-    required this.minAvatarRadius,
+    required this.avatarSize,
     required this.statusBarHeight,
   });
 
-  late final _extent = this.height + this.expandHeight;
-  late final _maxExtent = this._extent + this.stretchHeight;
-  late final expandPercent = (this.height + this.expandHeight) / _maxExtent;
-  late final maxAvatarLeft = 64.r;
-  late final titleLeftGap = 24.r;
-  late final avatarLeftPos = this.backIconSize + this.maxAvatarLeft;
-  late final titleLeftPos = this.avatarLeftPos + this.minAvatarRadius + this.titleLeftGap;
-  late final maxTop = this.height + this.expandHeight / 2 - this.minAvatarRadius;
-
-  late final minTop = this.statusBarHeight + (this.height - this.statusBarHeight) / 2 - this.minAvatarRadius / 2;
-
-  var offset = 0.0;
   var isExpanded = true;
   var isStretched = true;
-
-  double get avatarRadius {
-    return isExpanded ? maxAvatarRadius : minAvatarRadius;
-  }
-
-  double get avatarLeft {
-    return isExpanded ? minAvatarLeft : maxAvatarLeft;
-  }
-
-  double get avatarTop {
-    return maxTop;
-  }
-
-  double get titleLeft {
-    return avatarLeft;
-  }
-
-  double get titleTop {
-    return maxTop + 24.r;
-  }
-
-  double get process {
-    return min(1, offset / expandHeight);
-  }
-
-  double get left {
-    return minAvatarLeft + process * (maxAvatarLeft - minAvatarLeft + 40.r);
-  }
-
-  double get top {
-    return minTop + (1 - process) * (maxTop - minTop);
-  }
-
-  double get radius {
-    return minAvatarRadius + (1 - process) * (maxAvatarRadius - minAvatarRadius);
-  }
+  late final maxHeaderExtent = this.height + this.expandHeight + this.stretchHeight;
+  late final expandPercent = (this.height + this.expandHeight) / maxHeaderExtent;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    offset = shrinkOffset;
+    final double width = MediaQuery.of(context).size.width;
+    final double top = max(maxHeaderExtent - shrinkOffset - height - 40, 5);
+    final double process = shrinkOffset / maxHeaderExtent;
+
+    final double size = max(avatarSize * 2 * (1 - process), avatarSize);
 
     if (isStretched && process > expandPercent) {
       isStretched = false;
@@ -159,26 +117,24 @@ class _TelegramAppBarDelegate extends SliverPersistentHeaderDelegate {
 
     return Container(
       color: Colors.blue,
-      height: _maxExtent,
+      height: maxHeaderExtent,
       child: Stack(
         children: [
-          // 头像
           AnimatedBuilder(
             animation: controller,
             builder: (context, child) {
               print("controller.value: ${controller.value}");
               return Positioned(
-                top: top,
-                left: left,
-                width: radius,
-                height: radius,
-                child: child!,
-              );
+                  top: top * (1 - controller.value),
+                  left: backIconSize * (1 - controller.value),
+                  width: max(width * controller.value, avatarSize),
+                  height: max(width * controller.value, avatarSize),
+                  child: child!);
             },
             child: AnimatedPhysicalModel(
               duration: Duration(milliseconds: 100),
               curve: Curves.linear,
-              borderRadius: BorderRadius.circular(isStretched ? avatarRadius : avatarRadius),
+              borderRadius: BorderRadius.circular(isStretched ? 0 : 100),
               color: Colors.green,
               shadowColor: Colors.green,
               clipBehavior: Clip.antiAlias,
@@ -187,84 +143,46 @@ class _TelegramAppBarDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          // 用户名
           Positioned(
-            top: top,
-            left: titleLeftPos,
+            top: (top + (size - avatarSize) / 2) * (1 - controller.value),
+            left: backIconSize + size + titleGap,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "尼古拉斯.赵四",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 38.r,
-                    fontWeight: FontWeight.bold,
-                    height: 1,
-                  ),
-                ),
-                Text(
-                  "online",
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                    fontSize: 30.r,
-                    // height: 1,
-                  ),
+                Text("尼古拉斯.赵四"),
+                Text("online"),
+              ],
+            ),
+          ),
+          IconButtonTheme(
+            data: IconButtonThemeData(
+                style: IconButton.styleFrom(
+              foregroundColor: Colors.white,
+              iconSize: 48.r,
+            )),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: statusBarHeight),
+                Row(
+                  children: [
+                    IconButton(onPressed: () {}, icon: ArrowIcon.Left()),
+                    Spacer(),
+                    IconButton(onPressed: () {}, icon: Iconify(Ion.ios_search)),
+                    IconButton(onPressed: () {}, icon: Iconify(Ion.ios_search)),
+                    IconButton(onPressed: () {}, icon: Iconify(Ion.ios_search)),
+                  ],
                 ),
               ],
             ),
           ),
-          _buildActions(),
         ],
       ),
     );
   }
 
-  _buildActions() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(height: statusBarHeight),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: ArrowIcon.Left(
-                size: backIconSize,
-                color: Colors.white,
-              ),
-            ),
-            Spacer(),
-            // IconButton(
-            //   onPressed: () {},
-            //   icon: Icon(
-            //     Icons.qr_code,
-            //     color: Colors.white,
-            //   ),
-            // ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.more_vert,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
   @override
-  double get maxExtent => _extent;
+  double get maxExtent => height + expandHeight;
 
   @override
   double get minExtent => height;

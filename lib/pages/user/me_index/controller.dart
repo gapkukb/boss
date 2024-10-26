@@ -76,7 +76,7 @@ class MeIndexController extends GetxController with GetSingleTickerProviderState
     super.onInit();
     animation = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 300),
     );
   }
 

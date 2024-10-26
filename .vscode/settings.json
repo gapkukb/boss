@@ -4,5 +4,11 @@
   "[dart]": {
     "editor.rulers": [180]
   },
-  "java.configuration.updateBuildConfiguration": "automatic"
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "cSpell.words": [
+    "cupertino",
+    "iconify",
+    "screenutil",
+    "vsync"
+  ]
 }
