@@ -1,4 +1,8 @@
 steps:
+  checkout_specific_commit:
+    image: bitnami/git:latest  # 这个镜像自带 git
+    commands:
+      - if [ ! -z "${COMMIT_ID}" ]; then git checkout ${COMMIT_ID}; fi
   # 步骤 1: 安装依赖 (利用 pnpm 缓存)
   setup:
     image: node:24-bookworm-slim
