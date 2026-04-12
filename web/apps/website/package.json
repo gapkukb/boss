@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
+	"lint": "vp lint",
     "build": "tsc && vp build",
     "preview": "vp preview"
   },
