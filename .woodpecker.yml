@@ -1,8 +1,4 @@
 steps:
-  checkout_specific_commit:
-    image: bitnami/git:latest  # 这个镜像自带 git
-    commands:
-      - if [ ! -z "${COMMIT_ID}" ]; then git checkout ${COMMIT_ID}; fi
   # 步骤 1: 安装依赖 (利用 pnpm 缓存)
   setup:
     image: node:24-bookworm-slim
@@ -18,7 +14,9 @@ steps:
 
   # 步骤 2: 代码检查 (Lint)
   lint:
-    image: node:24-bookworm-slim
+    #image: node:24-bookworm-slim
+    #bitnami 镜像内置了 Git、pnpm 和各种工具
+    image: bitnami/node:24
     directory: web
     commands:
       - pnpm --filter website run lint
