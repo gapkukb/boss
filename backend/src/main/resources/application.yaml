@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: boss
+
+  web:
+    resources:
+      # 2. 禁用静态资源路径映射（否则 Spring 会去查静态资源而不是抛异常）
+      add-mappings: true
+
+  profiles:
+    active: dev
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:my_db}?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC"
+    username: "${DB_USERNAME:root}"
+    # 建议生产环境密码使用环境变量注入，不要写死在代码库里
+    password: "${DB_PASSWORD:a123456}"
+
+  data:
+    redis:
+      host: "${REDIS_HOST:127.0.0.1}"
+      port: "${REDIS_PORT:6379}"
+      password: "${REDIS_PASSWORD:a123456}"
+
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.knife4j.demo
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+logging:
+  level:
+    root: info
+    com.boss.mapper: debug
+
+server:
+  servlet:
+    context-path: /
+
+jwt:
+  secret: "your_secret_key"
+  access-expire: 24 * 60  #单位为分钟,过期时间为1天
+  refresh-expire: 7 * 24 * 60  #单位为分钟,过期时间为7天

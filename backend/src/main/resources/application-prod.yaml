@@ -1,0 +1,21 @@
+#spring:
+#  datasource:
+#    url: jdbc:mysql://prod-db-cluster:3306/db_prod
+#    username: ${DB_USERNAME}
+#    # 建议生产环境密码使用环境变量注入，不要写死在代码库里
+#    password: ${DB_PASSWORD}
+
+knife4j:
+  enable: false
+
+springdoc:
+  api-docs:
+    enabled: false
+
+logging:
+  level:
+    root: error # 生产环境只打印错误日志
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
