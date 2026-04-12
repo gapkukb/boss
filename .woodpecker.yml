@@ -1,7 +1,7 @@
 steps:
   # 步骤 1: 安装依赖 (利用 pnpm 缓存)
   setup:
-    image: node:24-bookworm-slim
+    image: bitnami/node:24
     directory: web
     commands:
       - node -v
@@ -25,7 +25,7 @@ steps:
 
   # 步骤 3: Vite 构建
   build:
-    image: node:24-bookworm-slim
+    image: bitnami/node:24
     directory: web
     commands:
       - pnpm --filter website run build
