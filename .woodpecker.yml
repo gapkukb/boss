@@ -1,0 +1,40 @@
+pipeline:
+  # 步骤 1: 安装依赖 (利用 pnpm 缓存)
+  setup:
+    image: node:24-bookworm-slim
+    directory: web
+    commands:
+      - node -v
+      - corepack enable
+      - corepack prepare pnpm@latest --activate
+      # 设置 pnpm 虚拟存储路径（可以配合缓存插件使用）
+      - pnpm config set store-dir .pnpm-store
+      # 安装依赖
+      - pnpm install --frozen-lockfile
+
+  # 步骤 2: 代码检查 (Lint)
+  lint:
+    image: node:24-bookworm-slim
+    directory: web
+    commands:
+      - pnpm --filter website run lint
+    when:
+      event: [push, pull_request]
+
+  # 步骤 3: Vite 构建
+  build:
+    image: node:24-bookworm-slim
+    directory: web
+    commands:
+      - pnpm --filter website run build
+    when:
+      branch: main
+
+  # 步骤 4: 预览或测试
+  # 如果你的 vite-plus 项目包含单元测试
+  # test:
+    # image: node:24-bookworm-slim
+    # commands:
+      # - pnpm test
+    # when:
+      # status: [success]
