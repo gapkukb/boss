@@ -1,4 +1,4 @@
-pipeline:
+steps:
   # 步骤 1: 安装依赖 (利用 pnpm 缓存)
   setup:
     image: node:24-bookworm-slim
