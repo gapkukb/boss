@@ -1,7 +1,8 @@
-# .woodpecker/test.yml
-# .woodpecker/test.yml
 when:
-  - event: manual # 必须加上这个
+  - event: cron
+    cron: "admin"  # 必须匹配 UI 里填写的 Name
+  - event: manual            # 建议同时也保留手动触发
+
 steps:
   test:
     image: alpine
