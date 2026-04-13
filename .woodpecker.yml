@@ -1,3 +1,7 @@
+variables:
+  - PROJECT=none
+  - CUSTOM_COMMIT=default_msg
+
 steps:
   # 步骤 1: 安装依赖 (利用 pnpm 缓存)
   setup:
@@ -29,14 +33,28 @@ steps:
     directory: web
     commands:
       - pnpm --filter website run build
+      # 清理旧代码并同步新产物
+      - rm -rf /root/docker_disk/www/*
+      - cp -r dist/* /root/docker_disk/www/
+    volumes:
+      # 映射宿主机的 NPM 静态目录
+      - /root/docker_disk/www:/deploy/www 
     when:
       branch: main
-
-  # 步骤 4: 预览或测试
-  # 如果你的 vite-plus 项目包含单元测试
-  # test:
-    # image: node:24-bookworm-slim
-    # commands:
-      # - pnpm test
-    # when:
-      # status: [success]
+      
+  deploy:
+    image: docker:latest
+    volumes:
+      - /root/docker_disk/nginx-proxy-manager/www:/output
+    commands:
+      - mkdir -p /output/my-project
+      - rm -rf /output/my-project/*
+      - cp -r dist/* /output/my-project/
+      
+  reload-npm:
+    image: docker:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      # 触发 NPM 重载配置（如果修改了高级 Nginx 配置）
+      - docker exec nginx nginx -s reload
