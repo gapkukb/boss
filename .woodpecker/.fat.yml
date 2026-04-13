@@ -1,4 +1,7 @@
 # .woodpecker/test.yml
+# .woodpecker/test.yml
+when:
+  - event: manual # 必须加上这个
 steps:
   test:
     image: alpine
