@@ -1,59 +1,7 @@
-when:
-  - event: manual  # 仅在 UI 手动触发时运行
-
+# .woodpecker/test.yml
 steps:
-  # 步骤 1: 安装依赖 (利用 pnpm 缓存)
-  setup:
-    image: bitnami/node:latest
-    directory: web
+  test:
+    image: alpine
     commands:
-      - node -v
-      - corepack enable
-      - corepack prepare pnpm@latest --activate
-      # 设置 pnpm 虚拟存储路径（可以配合缓存插件使用）
-      - pnpm config set store-dir .pnpm-store
-      # 安装依赖
-      - pnpm install --frozen-lockfile
-
-  # 步骤 2: 代码检查 (Lint)
-  lint:
-    #image: node:24-bookworm-slim
-    #bitnami 镜像内置了 Git、pnpm 和各种工具
-    image: bitnami/node:latest
-    directory: web
-    commands:
-      - pnpm --filter website run lint
-    when:
-      event: [push, pull_request]
-
-  # 步骤 3: Vite 构建
-  build:
-    image: bitnami/node:latest
-    directory: web
-    commands:
-      - pnpm --filter website run build
-      # 清理旧代码并同步新产物
-      - rm -rf /root/docker_disk/www/*
-      - cp -r dist/* /root/docker_disk/www/
-    volumes:
-      # 映射宿主机的 NPM 静态目录
-      - /root/docker_disk/www:/deploy/www 
-    when:
-      branch: main
-      
-  deploy:
-    image: docker:latest
-    volumes:
-      - /root/docker_disk/nginx-proxy-manager/www:/output
-    commands:
-      - mkdir -p /output/my-project
-      - rm -rf /output/my-project/*
-      - cp -r dist/* /output/my-project/
-      
-  reload-npm:
-    image: docker:latest
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    commands:
-      # 触发 NPM 重载配置（如果修改了高级 Nginx 配置）
-      - docker exec nginx nginx -s reload
+      - env
+# 暂时不写任何 when，看手动触发是否成功
