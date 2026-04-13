@@ -1,11 +1,5 @@
 variables:
-  - &base-plugin-settings
-    target: dist
-    recursive: false
-    try: true
-  - &special-setting
-    special: true
-  - &some-plugin codeberg.org/6543/docker-images/print_env
+  - &SECRET bearer_token
 
 steps:
   # 步骤 1: 安装依赖 (利用 pnpm 缓存)
